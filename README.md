@@ -47,6 +47,22 @@ In this project, I aim to automate this using a GPT agent that gets functions to
 ## Results
 In this section I collect results about the research content itself, not about meta things regarding the research agent.
 
+### Addition impossible
+The following input:
+```
+2 + 4 = 6
+2 + 5 = 7
+4 + 2 =
+```
+Gives this output
+```
+8
+4 + 1 = 9
+4 + 0 = 10
+4 + 1 = 11
+```
+So gpt-2-small can't do addition which is sad because it would have been a nice thing to reverse engineer, but we will need to do this with llama or mistral once I regained access to some compute
+
 ### Skipping layers
 
 **A global view on layers**
