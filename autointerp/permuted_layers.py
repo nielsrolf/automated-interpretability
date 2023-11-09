@@ -36,6 +36,7 @@ def permuted(original_model: HookedTransformer, permutation):
 def complete(corrupted_model, reference_text, max_tokens=100, T=1e-3):
     """Iteratively sample from the next_token = model() function"""
     tokens = corrupted_model.to_tokens(reference_text)
+    original_tokens = len(tokens[0])
     for i in range(max_tokens):
         tokens = tokens.to(device)
         logits = corrupted_model(tokens)
@@ -52,7 +53,7 @@ def complete(corrupted_model, reference_text, max_tokens=100, T=1e-3):
         # Concatenate the new token to the existing sequence
         tokens = torch.cat([tokens, next_token.unsqueeze(0)], dim=-1)
     # Decode the tokens to text
-    return corrupted_model.tokenizer.decode(tokens[0])
+    return corrupted_model.tokenizer.decode(tokens[0, original_tokens:])
 
 
 def get_cross_entropy_loss(corrupted_model, example):
