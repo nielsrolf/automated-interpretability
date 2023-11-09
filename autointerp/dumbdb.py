@@ -62,4 +62,4 @@ class ExperimentData:
             pickle.dump(self.items, f)
 
 
-store = ExperimentData("/Users/nielswarncke/Documents/code/TransformerLens/experiments")
+store = ExperimentData("/Users/nielswarncke/Documents/code/TransformerLens/experiments/new/")

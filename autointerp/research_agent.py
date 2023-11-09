@@ -29,6 +29,7 @@ async def permuted_layers_experiment(
     ),
     experiment_name: str = Field(..., description="Name for this experiment"),
     task: TaskNameEnum = Field(..., description="Evaluation task"),
+    num_examples: int = Field(1, description="The number of prompts to run for this task. In your exploration, use only 1 example per experiment, and add more later.")
 ):
     """Corrupt the model by permuting / skipping / repeating its transformer blocks.
 
@@ -46,7 +47,7 @@ async def permuted_layers_experiment(
     outputs = []
     for config in configurations:
         corrupted = permuted(model, config['layers'])
-        for example in task["examples"]:
+        for example in task["examples"][:num_examples]:
             completion = complete(corrupted, example["prompt"])
             loss = get_cross_entropy_loss(corrupted, example)
             outputs += [store(
@@ -68,7 +69,7 @@ async def permuted_layers_experiment(
 def format_outputs(outputs):
     outputs_str = ""
     for i in outputs:
-        outputs_str += f"## Ablation\n{i['ablation']}\n## Prompt\n{i['prompt']}\n##Completion\n{i['completion']}\n## Avg loss of: '{i['answer']}'\n{i['average_answer_token_loss']}\n---\n"
+        outputs_str += f"## Ablation\n{i['ablation']}\n## Prompt\n{i['prompt']}\n## Completion\n{i['completion']}\n## Avg loss of: '{i['answer']}'\n{i['average_answer_token_loss']}\n---\n"
     return outputs_str
 
 
@@ -117,9 +118,9 @@ async def make_notes(
 
 
 
-fields = set([])
-for item in store.items:
-    fields = fields.union(set(item.keys()))
+fields = set(['experiment_name', 'ablation', 'task_name', 'prompt', 'completion', 'average_answer_token_loss'])
+# for item in store.items:
+#     fields = fields.union(set(item.keys()))
 fields = list(fields)
 print("Fields: ", fields)
 FieldEnum = Enum("FieldEnum", {field: field for field in fields})
@@ -228,6 +229,8 @@ Goals of our experiments are the following:
 - we specifically want to test how localized computations appear to be: can we predict that certain behaviours break by skipping certain layers? Do capabilities (like following English grammer, etc) become present always at the same point in the residual stream, or is the responsibility usually shared and even duplicated?
 - for a certain capability, what is the minimal set of layers needed to compute them?
 - for a certain capability, what are the minimal sets of layers that break the capability if the layers are skipped?
+
+Let's start with an experiment 'Remove last n layers' where we keep only the first layer, then the first 2 etc.
 """
 
 # researcher = Agent(

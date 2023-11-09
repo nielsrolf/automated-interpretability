@@ -1,13 +1,22 @@
 # Task evaluations
 
+- make sure addition example is solved by the complete model
+
+- display state of notes / previous research in notebook
+
+- show previous notes to agent
+
+
+  
 - single token view:
-  - compute logit of 'correct answer'
   - compute logit diffs due to ablation
     - we can do this dor each layer
-- completion view:
-  - refactor of what we have
-- dataset view:
-  - aggregate loss over all task examples
+
+- extend agent:
+  - write your own experiments
+  - assign other agent to do the experiment
+  - see experiment notes
+
 
 
 

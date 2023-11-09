@@ -1,1 +1,950 @@
-[{"name": "1-digit + 1-digit addition", "description": "Addition", "examples": [{"prompt": "8 + 10 = 18\n7 + 4 = 11\n4 + 9 =", "answer": "13"}, {"prompt": "5 + 1 = 6\n5 + 4 = 9\n1 + 8 =", "answer": "9"}, {"prompt": "6 + 6 = 12\n10 + 1 = 11\n7 + 7 =", "answer": "14"}, {"prompt": "1 + 4 = 5\n10 + 1 = 11\n8 + 8 =", "answer": "16"}, {"prompt": "2 + 2 = 4\n4 + 8 = 12\n9 + 1 =", "answer": "10"}]}, {"name": "JSON formatting", "description": "Can the model generate correct JSON?", "examples": [{"prompt": "[{\"name\": \"James\", \"age\": 34, \"skills\": [\"Python\", \"git\"]}, {\"name\": \"Alan\", \"age\": 28, \"skills\": [\"MS Office\", \"Communication", "answer": "\"]}]"}, {"prompt": "{\"a\": 1, \"b\": 2, \"c\": {\"d\": \"", "answer": "3\"}}"}, {"prompt": "[{\"header\": {\"Authorization\": \"Bearer ...\", \"Content-type\": \"application/", "answer": "json\"}}]"}], "eval_questions": ["Does the completion resemble JSON?", "Is the completion correct JSON?"]}, {"name": "Facts about the world", "description": "Generate facts about the world", "examples": [{"prompt": "Madrid is the captial of", "answer": "Spain"}, {"prompt": "The capital of Spain is", "answer": "Madrid"}, {"prompt": "Obama was elected in the year", "answer": "2008"}, {"prompt": "The distance between Rome and Paris is approximately", "answer": "1500km"}, {"prompt": "World war 1 started in 1914 and ended in", "answer": "1918"}], "eval_questions": ["Repeat the completion from the beginning until the last word that is still grammatically correct English: (leave empty if no correct English is found)", "Does the completion resemble correct knowledge?Does the completion show fully correct knowledge?"]}, {"name": "Mathematical Operations", "description": "Test the model's ability to perform basic arithmetic operations.", "examples": [{"prompt": "2 + 2 =", "answer": "4"}, {"prompt": "8 - 3 =", "answer": "5"}, {"prompt": "5 * 5 =", "answer": "25"}, {"prompt": "10 / 2 =", "answer": "5"}, {"prompt": "3^2 =", "answer": "9"}, {"prompt": "sqrt(16) =", "answer": "4"}, {"prompt": "15 % 6 =", "answer": "3"}, {"prompt": "1 + 1 + 1 =", "answer": "3"}, {"prompt": "4 * (2 + 3) =", "answer": "20"}, {"prompt": "18 / (2 + 1) =", "answer": "6"}, {"prompt": "(8 - 5) * 2 =", "answer": "6"}, {"prompt": "50 / 5 / 2 =", "answer": "5"}, {"prompt": "7 + 8 - 4 =", "answer": "11"}, {"prompt": "9 + 6 / 3 =", "answer": "11"}, {"prompt": "(3 + 7) * 2 =", "answer": "20"}, {"prompt": "100 - (20 / 4) =", "answer": "95"}, {"prompt": "(15 % 4) + 7 =", "answer": "10"}, {"prompt": "6^2 / 3 =", "answer": "12"}, {"prompt": "sqrt(49) * 2 =", "answer": "14"}, {"prompt": "(5 * 5) - (3 * 2) =", "answer": "19"}], "eval_questions": ["Is the completion a correct result of the arithmetic operation?", "Does the completion follow the order of operations correctly?"]}, {"name": "Word Definitions", "description": "Can the model provide concise definitions for given words?", "examples": [{"prompt": "Define: apple", "answer": "A fruit with red, green, or yellow skin and a sweet to tart taste."}, {"prompt": "Define: computer", "answer": "An electronic device for storing and processing data, typically in binary form."}, {"prompt": "Define: ocean", "answer": "A large body of salt water that covers most of the Earth's surface."}, {"prompt": "Define: democracy", "answer": "A system of government by the whole population, typically through elected representatives."}, {"prompt": "Define: gravity", "answer": "A force that attracts a body toward the center of the earth, or toward any other physical body having mass."}, {"prompt": "Define: empathy", "answer": "The ability to understand and share the feelings of another."}, {"prompt": "Define: molecule", "answer": "The smallest particle of a chemical element or compound that has the chemical properties of that element or compound."}, {"prompt": "Define: philosophy", "answer": "The study of the fundamental nature of knowledge, reality, and existence."}, {"prompt": "Define: metabolism", "answer": "The chemical processes that occur within a living organism in order to maintain life."}, {"prompt": "Define: revolution", "answer": "A forcible overthrow of a government or social order, in favor of a new system."}, {"prompt": "Define: protein", "answer": "A molecule composed of amino acids that is an essential part of the living organism."}, {"prompt": "Define: inflation", "answer": "A general increase in prices and fall in the purchasing value of money."}, {"prompt": "Define: ecosystem", "answer": "A biological community of interacting organisms and their physical environment."}, {"prompt": "Define: hypothesis", "answer": "A proposed explanation for a phenomenon, made as a starting point for further investigation."}, {"prompt": "Define: neuron", "answer": "A specialized cell transmitting nerve impulses; a nerve cell."}, {"prompt": "Define: quantum", "answer": "The minimum amount of any physical entity involved in an interaction."}, {"prompt": "Define: galaxy", "answer": "A system of millions or billions of stars, together with gas and dust, held together by gravitational attraction."}, {"prompt": "Define: enzyme", "answer": "A substance produced by a living organism that acts as a catalyst to bring about a specific biochemical reaction."}, {"prompt": "Define: culture", "answer": "The arts and other manifestations of human intellectual achievement regarded collectively."}, {"prompt": "Define: constitution", "answer": "A body of fundamental principles or established precedents according to which a state or other organization is acknowledged to be governed."}], "eval_questions": ["Is the completion a concise and accurate definition of the word?", "Does the completion provide relevant information about the concept or object defined?"]}, {"name": "Rhyming Words", "description": "Can the model generate words that rhyme with a given word?", "examples": [{"prompt": "Find a word that rhymes with cat", "answer": "bat"}, {"prompt": "Find a word that rhymes with tree", "answer": "bee"}, {"prompt": "Find a word that rhymes with mouse", "answer": "house"}, {"prompt": "Find a word that rhymes with light", "answer": "night"}, {"prompt": "Find a word that rhymes with car", "answer": "star"}, {"prompt": "Find a word that rhymes with blue", "answer": "shoe"}, {"prompt": "Find a word that rhymes with sun", "answer": "fun"}, {"prompt": "Find a word that rhymes with book", "answer": "hook"}, {"prompt": "Find a word that rhymes with rain", "answer": "train"}, {"prompt": "Find a word that rhymes with play", "answer": "stay"}, {"prompt": "Find a word that rhymes with day", "answer": "bay"}, {"prompt": "Find a word that rhymes with kite", "answer": "flight"}, {"prompt": "Find a word that rhymes with duck", "answer": "truck"}, {"prompt": "Find a word that rhymes with ring", "answer": "sing"}, {"prompt": "Find a word that rhymes with ball", "answer": "hall"}, {"prompt": "Find a word that rhymes with red", "answer": "bed"}, {"prompt": "Find a word that rhymes with green", "answer": "queen"}, {"prompt": "Find a word that rhymes with fish", "answer": "dish"}, {"prompt": "Find a word that rhymes with sky", "answer": "high"}, {"prompt": "Find a word that rhymes with bear", "answer": "chair"}], "eval_questions": ["Does the completion rhyme with the given word?", "Is the completion a real word that makes sense in the context of rhyming?"]}, {"name": "Synonym Generation", "description": "Can the model provide synonyms for a given word?", "examples": [{"prompt": "Synonym for: happy", "answer": "joyful"}, {"prompt": "Synonym for: sad", "answer": "unhappy"}, {"prompt": "Synonym for: fast", "answer": "quick"}, {"prompt": "Synonym for: slow", "answer": "lethargic"}, {"prompt": "Synonym for: difficult", "answer": "challenging"}, {"prompt": "Synonym for: easy", "answer": "simple"}, {"prompt": "Synonym for: strong", "answer": "powerful"}, {"prompt": "Synonym for: weak", "answer": "frail"}, {"prompt": "Synonym for: bright", "answer": "luminous"}, {"prompt": "Synonym for: dark", "answer": "dim"}, {"prompt": "Synonym for: hot", "answer": "scorching"}, {"prompt": "Synonym for: cold", "answer": "chilly"}, {"prompt": "Synonym for: big", "answer": "large"}, {"prompt": "Synonym for: small", "answer": "tiny"}, {"prompt": "Synonym for: old", "answer": "ancient"}, {"prompt": "Synonym for: new", "answer": "modern"}, {"prompt": "Synonym for: funny", "answer": "humorous"}, {"prompt": "Synonym for: serious", "answer": "grave"}, {"prompt": "Synonym for: rich", "answer": "wealthy"}, {"prompt": "Synonym for: poor", "answer": "impoverished"}, {"prompt": "Synonym for: hot", "answer": "warm"}, {"prompt": "Synonym for: high", "answer": "tall"}, {"prompt": "Synonym for: early", "answer": "premature"}, {"prompt": "Synonym for: hard", "answer": "difficult"}, {"prompt": "Synonym for: young", "answer": "youthful"}, {"prompt": "Synonym for: light", "answer": "bright"}, {"prompt": "Synonym for: loud", "answer": "noisy"}, {"prompt": "Synonym for: sharp", "answer": "keen"}, {"prompt": "Synonym for: thick", "answer": "dense"}, {"prompt": "Synonym for: tight", "answer": "snug"}, {"prompt": "Synonym for: deep", "answer": "profound"}, {"prompt": "Synonym for: wide", "answer": "broad"}, {"prompt": "Synonym for: full", "answer": "packed"}, {"prompt": "Synonym for: complex", "answer": "complicated"}], "eval_questions": ["Is the completion a synonym of the given word?", "Does the synonym provided fit in similar contexts as the original word?"]}, {"name": "Antonym Generation", "description": "Can the model provide antonyms for a given word?", "examples": [{"prompt": "Antonym for: happy", "answer": "sad"}, {"prompt": "Antonym for: big", "answer": "small"}, {"prompt": "Antonym for: hot", "answer": "cold"}, {"prompt": "Antonym for: high", "answer": "low"}, {"prompt": "Antonym for: early", "answer": "late"}, {"prompt": "Antonym for: hard", "answer": "easy"}, {"prompt": "Antonym for: strong", "answer": "weak"}, {"prompt": "Antonym for: young", "answer": "old"}, {"prompt": "Antonym for: fast", "answer": "slow"}, {"prompt": "Antonym for: light", "answer": "heavy"}, {"prompt": "Antonym for: bright", "answer": "dim"}, {"prompt": "Antonym for: loud", "answer": "quiet"}, {"prompt": "Antonym for: rich", "answer": "poor"}, {"prompt": "Antonym for: sharp", "answer": "dull"}, {"prompt": "Antonym for: thick", "answer": "thin"}, {"prompt": "Antonym for: tight", "answer": "loose"}, {"prompt": "Antonym for: deep", "answer": "shallow"}, {"prompt": "Antonym for: wide", "answer": "narrow"}, {"prompt": "Antonym for: full", "answer": "empty"}, {"prompt": "Antonym for: complex", "answer": "simple"}], "eval_questions": ["Is the completion an antonym of the given word?", "Does the antonym provided have an opposite meaning to the original word?"]}, {"name": "Sentence Completion", "description": "Can the model complete a sentence with appropriate words or phrases?", "examples": [{"prompt": "The cat sat on the", "answer": "mat."}, {"prompt": "She opened the book to the", "answer": "page she had bookmarked."}, {"prompt": "He quickly ran to the", "answer": "store before it closed."}, {"prompt": "The sun set over the", "answer": "horizon, painting the sky with colors."}, {"prompt": "The flowers in the garden were", "answer": "blooming beautifully."}, {"prompt": "The room was filled with", "answer": "laughter and conversation."}, {"prompt": "The ancient ruins stood as a testament to", "answer": "a bygone era."}, {"prompt": "The artist picked up her brush and", "answer": "began to paint the canvas."}, {"prompt": "The detective examined the clues and", "answer": "started to piece together the mystery."}, {"prompt": "The children played hide and seek in the", "answer": "backyard."}, {"prompt": "The chef added a pinch of salt to the", "answer": "sauce to enhance the flavor."}, {"prompt": "The mountain climber reached the peak and", "answer": "gazed at the stunning view."}, {"prompt": "The student studied hard for the", "answer": "upcoming exams."}, {"prompt": "The music echoed through the", "answer": "hall, creating a magical atmosphere."}, {"prompt": "The author wrote the last sentence of the", "answer": "novel with a sense of accomplishment."}, {"prompt": "The waves crashed against the", "answer": "shoreline with a steady rhythm."}, {"prompt": "The wind howled through the", "answer": "trees on the stormy night."}, {"prompt": "The actor took a bow as the audience", "answer": "applauded loudly."}, {"prompt": "The inventor unveiled his latest creation, which", "answer": "promised to revolutionize the industry."}, {"prompt": "The teacher explained the concept until she was sure the students", "answer": "understood it."}], "eval_questions": ["Does the completion make sense in the context of the sentence?", "Is the sentence grammatically correct and coherent after completion?"]}, {"name": "Homophone Identification", "description": "Can the model identify homophones for a given word?", "examples": [{"prompt": "Homophone for: sea", "answer": "see"}, {"prompt": "Homophone for: knight", "answer": "night"}, {"prompt": "Homophone for: flour", "answer": "flower"}, {"prompt": "Homophone for: mail", "answer": "male"}, {"prompt": "Homophone for: right", "answer": "write"}, {"prompt": "Homophone for: peace", "answer": "piece"}, {"prompt": "Homophone for: sun", "answer": "son"}, {"prompt": "Homophone for: no", "answer": "know"}, {"prompt": "Homophone for: one", "answer": "won"}, {"prompt": "Homophone for: to", "answer": "two"}, {"prompt": "Homophone for: break", "answer": "brake"}, {"prompt": "Homophone for: cell", "answer": "sell"}, {"prompt": "Homophone for: meat", "answer": "meet"}, {"prompt": "Homophone for: road", "answer": "rode"}, {"prompt": "Homophone for: sail", "answer": "sale"}, {"prompt": "Homophone for: sole", "answer": "soul"}, {"prompt": "Homophone for: their", "answer": "there"}, {"prompt": "Homophone for: waist", "answer": "waste"}, {"prompt": "Homophone for: week", "answer": "weak"}, {"prompt": "Homophone for: which", "answer": "witch"}], "eval_questions": ["Is the completion a homophone of the given word?", "Does the homophone provided sound the same as the original word?"]}, {"name": "Common Phrase Completion", "description": "Can the model complete a common phrase or saying?", "examples": [{"prompt": "A penny for your", "answer": "thoughts."}, {"prompt": "An apple a day keeps the", "answer": "doctor away."}, {"prompt": "Better late than", "answer": "never."}, {"prompt": "Birds of a feather flock", "answer": "together."}, {"prompt": "Actions speak louder than", "answer": "words."}, {"prompt": "Every cloud has a silver", "answer": "lining."}, {"prompt": "Great minds think", "answer": "alike."}, {"prompt": "It's raining cats and", "answer": "dogs."}, {"prompt": "Laughter is the best", "answer": "medicine."}, {"prompt": "Once bitten, twice", "answer": "shy."}, {"prompt": "Out of sight, out of", "answer": "mind."}, {"prompt": "The early bird catches the", "answer": "worm."}, {"prompt": "Time heals all", "answer": "wounds."}, {"prompt": "When in Rome, do as the", "answer": "Romans do."}, {"prompt": "You can't judge a book by its", "answer": "cover."}, {"prompt": "Absence makes the heart grow", "answer": "fonder."}, {"prompt": "All that glitters is not", "answer": "gold."}, {"prompt": "Don't count your chickens before they", "answer": "hatch."}, {"prompt": "Good things come to those who", "answer": "wait."}, {"prompt": "Ignorance is", "answer": "bliss."}, {"prompt": "Knowledge is", "answer": "power."}], "eval_questions": ["Does the completion correctly finish the common phrase or saying?", "Is the phrase recognizable and commonly used after completion?"]}, {"name": "Historical Events", "description": "Can the model recall significant historical events and their details?", "examples": [{"prompt": "The Declaration of Independence was signed in", "answer": "1776."}, {"prompt": "The Great Wall of China was built during the", "answer": "Ming Dynasty."}, {"prompt": "The Titanic sank in the year", "answer": "1912."}, {"prompt": "World War II began in", "answer": "1939."}, {"prompt": "The first man to walk on the moon did so in", "answer": "1969."}, {"prompt": "The Berlin Wall fell in", "answer": "1989."}, {"prompt": "The Renaissance was a cultural movement that began in", "answer": "14th-century Europe."}, {"prompt": "The Magna Carta was signed in", "answer": "1215."}, {"prompt": "The Russian Revolution took place in", "answer": "1917."}, {"prompt": "The first successful airplane flight was by the Wright brothers in", "answer": "1903."}, {"prompt": "The invention of the printing press by Johannes Gutenberg occurred around", "answer": "1440."}, {"prompt": "The Battle of Hastings was fought in", "answer": "1066."}, {"prompt": "The atomic bombings of Hiroshima and Nagasaki happened in", "answer": "1945."}, {"prompt": "The French Revolution started in", "answer": "1789."}, {"prompt": "The discovery of penicillin by Alexander Fleming was in", "answer": "1928."}, {"prompt": "The construction of the Panama Canal was completed in", "answer": "1914."}, {"prompt": "The first programmable computer, the Z3, was completed in", "answer": "1941."}, {"prompt": "The Suez Canal was officially opened in", "answer": "1869."}, {"prompt": "The signing of the Treaty of Versailles ended World War I in", "answer": "1919."}, {"prompt": "The first human heart transplant was performed in", "answer": "1967."}], "eval_questions": ["Is the completion a correct detail about the historical event?", "Does the completion provide a specific and relevant fact about the event?"]}]
+[
+    {
+        "name": "1-digit + 1-digit addition",
+        "description": "Addition",
+        "examples": [
+            {
+                "prompt": "2 + 4 = 6\n2 + 5 = 7\n4 + 2 =",
+                "answer": "6"
+            },
+            {
+                "prompt": "3 + 2 = 5\n5 + 5 = 10\n4 + 3 =",
+                "answer": "7"
+            },
+            {
+                "prompt": "1 + 5 = 6\n1 + 3 = 4\n5 + 1 =",
+                "answer": "6"
+            },
+            {
+                "prompt": "3 + 1 = 4\n4 + 5 = 9\n2 + 2 =",
+                "answer": "4"
+            },
+            {
+                "prompt": "5 + 3 = 8\n5 + 5 = 10\n4 + 1 =",
+                "answer": "5"
+            }
+        ]
+    },
+    {
+        "name": "JSON formatting",
+        "description": "Can the model generate correct JSON?",
+        "examples": [
+            {
+                "prompt": "[{\"name\": \"James\", \"age\": 34, \"skills\": [\"Python\", \"git\"]}, {\"name\": \"Alan\", \"age\": 28, \"skills\": [\"MS Office\", \"Communication",
+                "answer": "\"]}]"
+            },
+            {
+                "prompt": "{\"a\": 1, \"b\": 2, \"c\": {\"d\": \"",
+                "answer": "3\"}}"
+            },
+            {
+                "prompt": "[{\"header\": {\"Authorization\": \"Bearer ...\", \"Content-type\": \"application/",
+                "answer": "json\"}}]"
+            }
+        ],
+        "eval_questions": [
+            "Does the completion resemble JSON?",
+            "Is the completion correct JSON?"
+        ]
+    },
+    {
+        "name": "Facts about the world",
+        "description": "Generate facts about the world",
+        "examples": [
+            {
+                "prompt": "Madrid is the captial of",
+                "answer": "Spain"
+            },
+            {
+                "prompt": "The capital of Spain is",
+                "answer": "Madrid"
+            },
+            {
+                "prompt": "Obama was elected in the year",
+                "answer": "2008"
+            },
+            {
+                "prompt": "The distance between Rome and Paris is approximately",
+                "answer": "1500km"
+            },
+            {
+                "prompt": "World war 1 started in 1914 and ended in",
+                "answer": "1918"
+            }
+        ],
+        "eval_questions": [
+            "Repeat the completion from the beginning until the last word that is still grammatically correct English: (leave empty if no correct English is found)",
+            "Does the completion resemble correct knowledge?Does the completion show fully correct knowledge?"
+        ]
+    },
+    {
+        "name": "Mathematical Operations",
+        "description": "Test the model's ability to perform basic arithmetic operations.",
+        "examples": [
+            {
+                "prompt": "2 + 2 =",
+                "answer": "4"
+            },
+            {
+                "prompt": "8 - 3 =",
+                "answer": "5"
+            },
+            {
+                "prompt": "5 * 5 =",
+                "answer": "25"
+            },
+            {
+                "prompt": "10 / 2 =",
+                "answer": "5"
+            },
+            {
+                "prompt": "3^2 =",
+                "answer": "9"
+            },
+            {
+                "prompt": "sqrt(16) =",
+                "answer": "4"
+            },
+            {
+                "prompt": "15 % 6 =",
+                "answer": "3"
+            },
+            {
+                "prompt": "1 + 1 + 1 =",
+                "answer": "3"
+            },
+            {
+                "prompt": "4 * (2 + 3) =",
+                "answer": "20"
+            },
+            {
+                "prompt": "18 / (2 + 1) =",
+                "answer": "6"
+            },
+            {
+                "prompt": "(8 - 5) * 2 =",
+                "answer": "6"
+            },
+            {
+                "prompt": "50 / 5 / 2 =",
+                "answer": "5"
+            },
+            {
+                "prompt": "7 + 8 - 4 =",
+                "answer": "11"
+            },
+            {
+                "prompt": "9 + 6 / 3 =",
+                "answer": "11"
+            },
+            {
+                "prompt": "(3 + 7) * 2 =",
+                "answer": "20"
+            },
+            {
+                "prompt": "100 - (20 / 4) =",
+                "answer": "95"
+            },
+            {
+                "prompt": "(15 % 4) + 7 =",
+                "answer": "10"
+            },
+            {
+                "prompt": "6^2 / 3 =",
+                "answer": "12"
+            },
+            {
+                "prompt": "sqrt(49) * 2 =",
+                "answer": "14"
+            },
+            {
+                "prompt": "(5 * 5) - (3 * 2) =",
+                "answer": "19"
+            }
+        ],
+        "eval_questions": [
+            "Is the completion a correct result of the arithmetic operation?",
+            "Does the completion follow the order of operations correctly?"
+        ]
+    },
+    {
+        "name": "Word Definitions",
+        "description": "Can the model provide concise definitions for given words?",
+        "examples": [
+            {
+                "prompt": "Define: apple",
+                "answer": "A fruit with red, green, or yellow skin and a sweet to tart taste."
+            },
+            {
+                "prompt": "Define: computer",
+                "answer": "An electronic device for storing and processing data, typically in binary form."
+            },
+            {
+                "prompt": "Define: ocean",
+                "answer": "A large body of salt water that covers most of the Earth's surface."
+            },
+            {
+                "prompt": "Define: democracy",
+                "answer": "A system of government by the whole population, typically through elected representatives."
+            },
+            {
+                "prompt": "Define: gravity",
+                "answer": "A force that attracts a body toward the center of the earth, or toward any other physical body having mass."
+            },
+            {
+                "prompt": "Define: empathy",
+                "answer": "The ability to understand and share the feelings of another."
+            },
+            {
+                "prompt": "Define: molecule",
+                "answer": "The smallest particle of a chemical element or compound that has the chemical properties of that element or compound."
+            },
+            {
+                "prompt": "Define: philosophy",
+                "answer": "The study of the fundamental nature of knowledge, reality, and existence."
+            },
+            {
+                "prompt": "Define: metabolism",
+                "answer": "The chemical processes that occur within a living organism in order to maintain life."
+            },
+            {
+                "prompt": "Define: revolution",
+                "answer": "A forcible overthrow of a government or social order, in favor of a new system."
+            },
+            {
+                "prompt": "Define: protein",
+                "answer": "A molecule composed of amino acids that is an essential part of the living organism."
+            },
+            {
+                "prompt": "Define: inflation",
+                "answer": "A general increase in prices and fall in the purchasing value of money."
+            },
+            {
+                "prompt": "Define: ecosystem",
+                "answer": "A biological community of interacting organisms and their physical environment."
+            },
+            {
+                "prompt": "Define: hypothesis",
+                "answer": "A proposed explanation for a phenomenon, made as a starting point for further investigation."
+            },
+            {
+                "prompt": "Define: neuron",
+                "answer": "A specialized cell transmitting nerve impulses; a nerve cell."
+            },
+            {
+                "prompt": "Define: quantum",
+                "answer": "The minimum amount of any physical entity involved in an interaction."
+            },
+            {
+                "prompt": "Define: galaxy",
+                "answer": "A system of millions or billions of stars, together with gas and dust, held together by gravitational attraction."
+            },
+            {
+                "prompt": "Define: enzyme",
+                "answer": "A substance produced by a living organism that acts as a catalyst to bring about a specific biochemical reaction."
+            },
+            {
+                "prompt": "Define: culture",
+                "answer": "The arts and other manifestations of human intellectual achievement regarded collectively."
+            },
+            {
+                "prompt": "Define: constitution",
+                "answer": "A body of fundamental principles or established precedents according to which a state or other organization is acknowledged to be governed."
+            }
+        ],
+        "eval_questions": [
+            "Is the completion a concise and accurate definition of the word?",
+            "Does the completion provide relevant information about the concept or object defined?"
+        ]
+    },
+    {
+        "name": "Rhyming Words",
+        "description": "Can the model generate words that rhyme with a given word?",
+        "examples": [
+            {
+                "prompt": "Find a word that rhymes with cat",
+                "answer": "bat"
+            },
+            {
+                "prompt": "Find a word that rhymes with tree",
+                "answer": "bee"
+            },
+            {
+                "prompt": "Find a word that rhymes with mouse",
+                "answer": "house"
+            },
+            {
+                "prompt": "Find a word that rhymes with light",
+                "answer": "night"
+            },
+            {
+                "prompt": "Find a word that rhymes with car",
+                "answer": "star"
+            },
+            {
+                "prompt": "Find a word that rhymes with blue",
+                "answer": "shoe"
+            },
+            {
+                "prompt": "Find a word that rhymes with sun",
+                "answer": "fun"
+            },
+            {
+                "prompt": "Find a word that rhymes with book",
+                "answer": "hook"
+            },
+            {
+                "prompt": "Find a word that rhymes with rain",
+                "answer": "train"
+            },
+            {
+                "prompt": "Find a word that rhymes with play",
+                "answer": "stay"
+            },
+            {
+                "prompt": "Find a word that rhymes with day",
+                "answer": "bay"
+            },
+            {
+                "prompt": "Find a word that rhymes with kite",
+                "answer": "flight"
+            },
+            {
+                "prompt": "Find a word that rhymes with duck",
+                "answer": "truck"
+            },
+            {
+                "prompt": "Find a word that rhymes with ring",
+                "answer": "sing"
+            },
+            {
+                "prompt": "Find a word that rhymes with ball",
+                "answer": "hall"
+            },
+            {
+                "prompt": "Find a word that rhymes with red",
+                "answer": "bed"
+            },
+            {
+                "prompt": "Find a word that rhymes with green",
+                "answer": "queen"
+            },
+            {
+                "prompt": "Find a word that rhymes with fish",
+                "answer": "dish"
+            },
+            {
+                "prompt": "Find a word that rhymes with sky",
+                "answer": "high"
+            },
+            {
+                "prompt": "Find a word that rhymes with bear",
+                "answer": "chair"
+            }
+        ],
+        "eval_questions": [
+            "Does the completion rhyme with the given word?",
+            "Is the completion a real word that makes sense in the context of rhyming?"
+        ]
+    },
+    {
+        "name": "Synonym Generation",
+        "description": "Can the model provide synonyms for a given word?",
+        "examples": [
+            {
+                "prompt": "Synonym for: happy",
+                "answer": "joyful"
+            },
+            {
+                "prompt": "Synonym for: sad",
+                "answer": "unhappy"
+            },
+            {
+                "prompt": "Synonym for: fast",
+                "answer": "quick"
+            },
+            {
+                "prompt": "Synonym for: slow",
+                "answer": "lethargic"
+            },
+            {
+                "prompt": "Synonym for: difficult",
+                "answer": "challenging"
+            },
+            {
+                "prompt": "Synonym for: easy",
+                "answer": "simple"
+            },
+            {
+                "prompt": "Synonym for: strong",
+                "answer": "powerful"
+            },
+            {
+                "prompt": "Synonym for: weak",
+                "answer": "frail"
+            },
+            {
+                "prompt": "Synonym for: bright",
+                "answer": "luminous"
+            },
+            {
+                "prompt": "Synonym for: dark",
+                "answer": "dim"
+            },
+            {
+                "prompt": "Synonym for: hot",
+                "answer": "scorching"
+            },
+            {
+                "prompt": "Synonym for: cold",
+                "answer": "chilly"
+            },
+            {
+                "prompt": "Synonym for: big",
+                "answer": "large"
+            },
+            {
+                "prompt": "Synonym for: small",
+                "answer": "tiny"
+            },
+            {
+                "prompt": "Synonym for: old",
+                "answer": "ancient"
+            },
+            {
+                "prompt": "Synonym for: new",
+                "answer": "modern"
+            },
+            {
+                "prompt": "Synonym for: funny",
+                "answer": "humorous"
+            },
+            {
+                "prompt": "Synonym for: serious",
+                "answer": "grave"
+            },
+            {
+                "prompt": "Synonym for: rich",
+                "answer": "wealthy"
+            },
+            {
+                "prompt": "Synonym for: poor",
+                "answer": "impoverished"
+            },
+            {
+                "prompt": "Synonym for: hot",
+                "answer": "warm"
+            },
+            {
+                "prompt": "Synonym for: high",
+                "answer": "tall"
+            },
+            {
+                "prompt": "Synonym for: early",
+                "answer": "premature"
+            },
+            {
+                "prompt": "Synonym for: hard",
+                "answer": "difficult"
+            },
+            {
+                "prompt": "Synonym for: young",
+                "answer": "youthful"
+            },
+            {
+                "prompt": "Synonym for: light",
+                "answer": "bright"
+            },
+            {
+                "prompt": "Synonym for: loud",
+                "answer": "noisy"
+            },
+            {
+                "prompt": "Synonym for: sharp",
+                "answer": "keen"
+            },
+            {
+                "prompt": "Synonym for: thick",
+                "answer": "dense"
+            },
+            {
+                "prompt": "Synonym for: tight",
+                "answer": "snug"
+            },
+            {
+                "prompt": "Synonym for: deep",
+                "answer": "profound"
+            },
+            {
+                "prompt": "Synonym for: wide",
+                "answer": "broad"
+            },
+            {
+                "prompt": "Synonym for: full",
+                "answer": "packed"
+            },
+            {
+                "prompt": "Synonym for: complex",
+                "answer": "complicated"
+            }
+        ],
+        "eval_questions": [
+            "Is the completion a synonym of the given word?",
+            "Does the synonym provided fit in similar contexts as the original word?"
+        ]
+    },
+    {
+        "name": "Antonym Generation",
+        "description": "Can the model provide antonyms for a given word?",
+        "examples": [
+            {
+                "prompt": "Antonym for: happy",
+                "answer": "sad"
+            },
+            {
+                "prompt": "Antonym for: big",
+                "answer": "small"
+            },
+            {
+                "prompt": "Antonym for: hot",
+                "answer": "cold"
+            },
+            {
+                "prompt": "Antonym for: high",
+                "answer": "low"
+            },
+            {
+                "prompt": "Antonym for: early",
+                "answer": "late"
+            },
+            {
+                "prompt": "Antonym for: hard",
+                "answer": "easy"
+            },
+            {
+                "prompt": "Antonym for: strong",
+                "answer": "weak"
+            },
+            {
+                "prompt": "Antonym for: young",
+                "answer": "old"
+            },
+            {
+                "prompt": "Antonym for: fast",
+                "answer": "slow"
+            },
+            {
+                "prompt": "Antonym for: light",
+                "answer": "heavy"
+            },
+            {
+                "prompt": "Antonym for: bright",
+                "answer": "dim"
+            },
+            {
+                "prompt": "Antonym for: loud",
+                "answer": "quiet"
+            },
+            {
+                "prompt": "Antonym for: rich",
+                "answer": "poor"
+            },
+            {
+                "prompt": "Antonym for: sharp",
+                "answer": "dull"
+            },
+            {
+                "prompt": "Antonym for: thick",
+                "answer": "thin"
+            },
+            {
+                "prompt": "Antonym for: tight",
+                "answer": "loose"
+            },
+            {
+                "prompt": "Antonym for: deep",
+                "answer": "shallow"
+            },
+            {
+                "prompt": "Antonym for: wide",
+                "answer": "narrow"
+            },
+            {
+                "prompt": "Antonym for: full",
+                "answer": "empty"
+            },
+            {
+                "prompt": "Antonym for: complex",
+                "answer": "simple"
+            }
+        ],
+        "eval_questions": [
+            "Is the completion an antonym of the given word?",
+            "Does the antonym provided have an opposite meaning to the original word?"
+        ]
+    },
+    {
+        "name": "Sentence Completion",
+        "description": "Can the model complete a sentence with appropriate words or phrases?",
+        "examples": [
+            {
+                "prompt": "The cat sat on the",
+                "answer": "mat."
+            },
+            {
+                "prompt": "She opened the book to the",
+                "answer": "page she had bookmarked."
+            },
+            {
+                "prompt": "He quickly ran to the",
+                "answer": "store before it closed."
+            },
+            {
+                "prompt": "The sun set over the",
+                "answer": "horizon, painting the sky with colors."
+            },
+            {
+                "prompt": "The flowers in the garden were",
+                "answer": "blooming beautifully."
+            },
+            {
+                "prompt": "The room was filled with",
+                "answer": "laughter and conversation."
+            },
+            {
+                "prompt": "The ancient ruins stood as a testament to",
+                "answer": "a bygone era."
+            },
+            {
+                "prompt": "The artist picked up her brush and",
+                "answer": "began to paint the canvas."
+            },
+            {
+                "prompt": "The detective examined the clues and",
+                "answer": "started to piece together the mystery."
+            },
+            {
+                "prompt": "The children played hide and seek in the",
+                "answer": "backyard."
+            },
+            {
+                "prompt": "The chef added a pinch of salt to the",
+                "answer": "sauce to enhance the flavor."
+            },
+            {
+                "prompt": "The mountain climber reached the peak and",
+                "answer": "gazed at the stunning view."
+            },
+            {
+                "prompt": "The student studied hard for the",
+                "answer": "upcoming exams."
+            },
+            {
+                "prompt": "The music echoed through the",
+                "answer": "hall, creating a magical atmosphere."
+            },
+            {
+                "prompt": "The author wrote the last sentence of the",
+                "answer": "novel with a sense of accomplishment."
+            },
+            {
+                "prompt": "The waves crashed against the",
+                "answer": "shoreline with a steady rhythm."
+            },
+            {
+                "prompt": "The wind howled through the",
+                "answer": "trees on the stormy night."
+            },
+            {
+                "prompt": "The actor took a bow as the audience",
+                "answer": "applauded loudly."
+            },
+            {
+                "prompt": "The inventor unveiled his latest creation, which",
+                "answer": "promised to revolutionize the industry."
+            },
+            {
+                "prompt": "The teacher explained the concept until she was sure the students",
+                "answer": "understood it."
+            }
+        ],
+        "eval_questions": [
+            "Does the completion make sense in the context of the sentence?",
+            "Is the sentence grammatically correct and coherent after completion?"
+        ]
+    },
+    {
+        "name": "Homophone Identification",
+        "description": "Can the model identify homophones for a given word?",
+        "examples": [
+            {
+                "prompt": "Homophone for: sea",
+                "answer": "see"
+            },
+            {
+                "prompt": "Homophone for: knight",
+                "answer": "night"
+            },
+            {
+                "prompt": "Homophone for: flour",
+                "answer": "flower"
+            },
+            {
+                "prompt": "Homophone for: mail",
+                "answer": "male"
+            },
+            {
+                "prompt": "Homophone for: right",
+                "answer": "write"
+            },
+            {
+                "prompt": "Homophone for: peace",
+                "answer": "piece"
+            },
+            {
+                "prompt": "Homophone for: sun",
+                "answer": "son"
+            },
+            {
+                "prompt": "Homophone for: no",
+                "answer": "know"
+            },
+            {
+                "prompt": "Homophone for: one",
+                "answer": "won"
+            },
+            {
+                "prompt": "Homophone for: to",
+                "answer": "two"
+            },
+            {
+                "prompt": "Homophone for: break",
+                "answer": "brake"
+            },
+            {
+                "prompt": "Homophone for: cell",
+                "answer": "sell"
+            },
+            {
+                "prompt": "Homophone for: meat",
+                "answer": "meet"
+            },
+            {
+                "prompt": "Homophone for: road",
+                "answer": "rode"
+            },
+            {
+                "prompt": "Homophone for: sail",
+                "answer": "sale"
+            },
+            {
+                "prompt": "Homophone for: sole",
+                "answer": "soul"
+            },
+            {
+                "prompt": "Homophone for: their",
+                "answer": "there"
+            },
+            {
+                "prompt": "Homophone for: waist",
+                "answer": "waste"
+            },
+            {
+                "prompt": "Homophone for: week",
+                "answer": "weak"
+            },
+            {
+                "prompt": "Homophone for: which",
+                "answer": "witch"
+            }
+        ],
+        "eval_questions": [
+            "Is the completion a homophone of the given word?",
+            "Does the homophone provided sound the same as the original word?"
+        ]
+    },
+    {
+        "name": "Common Phrase Completion",
+        "description": "Can the model complete a common phrase or saying?",
+        "examples": [
+            {
+                "prompt": "A penny for your",
+                "answer": "thoughts."
+            },
+            {
+                "prompt": "An apple a day keeps the",
+                "answer": "doctor away."
+            },
+            {
+                "prompt": "Better late than",
+                "answer": "never."
+            },
+            {
+                "prompt": "Birds of a feather flock",
+                "answer": "together."
+            },
+            {
+                "prompt": "Actions speak louder than",
+                "answer": "words."
+            },
+            {
+                "prompt": "Every cloud has a silver",
+                "answer": "lining."
+            },
+            {
+                "prompt": "Great minds think",
+                "answer": "alike."
+            },
+            {
+                "prompt": "It's raining cats and",
+                "answer": "dogs."
+            },
+            {
+                "prompt": "Laughter is the best",
+                "answer": "medicine."
+            },
+            {
+                "prompt": "Once bitten, twice",
+                "answer": "shy."
+            },
+            {
+                "prompt": "Out of sight, out of",
+                "answer": "mind."
+            },
+            {
+                "prompt": "The early bird catches the",
+                "answer": "worm."
+            },
+            {
+                "prompt": "Time heals all",
+                "answer": "wounds."
+            },
+            {
+                "prompt": "When in Rome, do as the",
+                "answer": "Romans do."
+            },
+            {
+                "prompt": "You can't judge a book by its",
+                "answer": "cover."
+            },
+            {
+                "prompt": "Absence makes the heart grow",
+                "answer": "fonder."
+            },
+            {
+                "prompt": "All that glitters is not",
+                "answer": "gold."
+            },
+            {
+                "prompt": "Don't count your chickens before they",
+                "answer": "hatch."
+            },
+            {
+                "prompt": "Good things come to those who",
+                "answer": "wait."
+            },
+            {
+                "prompt": "Ignorance is",
+                "answer": "bliss."
+            },
+            {
+                "prompt": "Knowledge is",
+                "answer": "power."
+            }
+        ],
+        "eval_questions": [
+            "Does the completion correctly finish the common phrase or saying?",
+            "Is the phrase recognizable and commonly used after completion?"
+        ]
+    },
+    {
+        "name": "Historical Events",
+        "description": "Can the model recall significant historical events and their details?",
+        "examples": [
+            {
+                "prompt": "The Declaration of Independence was signed in",
+                "answer": "1776."
+            },
+            {
+                "prompt": "The Great Wall of China was built during the",
+                "answer": "Ming Dynasty."
+            },
+            {
+                "prompt": "The Titanic sank in the year",
+                "answer": "1912."
+            },
+            {
+                "prompt": "World War II began in",
+                "answer": "1939."
+            },
+            {
+                "prompt": "The first man to walk on the moon did so in",
+                "answer": "1969."
+            },
+            {
+                "prompt": "The Berlin Wall fell in",
+                "answer": "1989."
+            },
+            {
+                "prompt": "The Renaissance was a cultural movement that began in",
+                "answer": "14th-century Europe."
+            },
+            {
+                "prompt": "The Magna Carta was signed in",
+                "answer": "1215."
+            },
+            {
+                "prompt": "The Russian Revolution took place in",
+                "answer": "1917."
+            },
+            {
+                "prompt": "The first successful airplane flight was by the Wright brothers in",
+                "answer": "1903."
+            },
+            {
+                "prompt": "The invention of the printing press by Johannes Gutenberg occurred around",
+                "answer": "1440."
+            },
+            {
+                "prompt": "The Battle of Hastings was fought in",
+                "answer": "1066."
+            },
+            {
+                "prompt": "The atomic bombings of Hiroshima and Nagasaki happened in",
+                "answer": "1945."
+            },
+            {
+                "prompt": "The French Revolution started in",
+                "answer": "1789."
+            },
+            {
+                "prompt": "The discovery of penicillin by Alexander Fleming was in",
+                "answer": "1928."
+            },
+            {
+                "prompt": "The construction of the Panama Canal was completed in",
+                "answer": "1914."
+            },
+            {
+                "prompt": "The first programmable computer, the Z3, was completed in",
+                "answer": "1941."
+            },
+            {
+                "prompt": "The Suez Canal was officially opened in",
+                "answer": "1869."
+            },
+            {
+                "prompt": "The signing of the Treaty of Versailles ended World War I in",
+                "answer": "1919."
+            },
+            {
+                "prompt": "The first human heart transplant was performed in",
+                "answer": "1967."
+            }
+        ],
+        "eval_questions": [
+            "Is the completion a correct detail about the historical event?",
+            "Does the completion provide a specific and relevant fact about the event?"
+        ]
+    }
+]

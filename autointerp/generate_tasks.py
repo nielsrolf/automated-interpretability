@@ -7,8 +7,8 @@ from pydantic import BaseModel, Field
 
 
 def get_addition_prompt(digit_i, digit_j):
-    a = random.randint(10**digit_i, 10 * 10**digit_i)
-    b = random.randint(10**digit_j, 10 * 10**digit_j)
+    a = random.randint(10**digit_i, 10 * 10**digit_i // 2)
+    b = random.randint(10**digit_j, 10 * 10**digit_j // 2)
     c = a + b
     return f"{a} + {b} = {c}"
 
@@ -167,7 +167,7 @@ def clean_list():
     print("before", names)
     print("after", new_names)
     with open("tasks.json", "w") as f:
-        json.dump(tasks, f)
+        json.dump(tasks, f, indent=4)
 
 
 if __name__ == "__main__":

@@ -33,7 +33,7 @@ def permuted(original_model: HookedTransformer, permutation):
     return corrupted_model
 
 
-def complete(corrupted_model, reference_text, max_tokens=100, T=1e-3):
+def complete(corrupted_model, reference_text, max_tokens=20, T=1e-3):
     """Iteratively sample from the next_token = model() function"""
     tokens = corrupted_model.to_tokens(reference_text)
     original_tokens = len(tokens[0])
@@ -68,3 +68,20 @@ def get_cross_entropy_loss(corrupted_model, example):
     loss = loss.detach().cpu().numpy()[0][-len(completion_tokens):]
     print(loss, loss.shape)
     return float(loss)
+
+
+def test_permuted_layers():
+    from autointerp.settings import model, tasks
+    text = "I hope future AI will respect animal rights"
+    text = tasks[0]['examples'][0]['prompt']
+    print(text)
+    original = complete(model, text, 20, T=1e-3)
+    print("original", original)
+    model_copy = permuted(model, list(range(len(model.blocks))))
+    completion = complete(model_copy, text, 20, T=1e-3)
+    print("completion", completion)
+    assert original == completion
+
+
+if __name__ == "__main__":
+    test_permuted_layers()
