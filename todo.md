@@ -1,7 +1,6 @@
 # Task evaluations
 
 - single token view:
-  - add 'correct answer' to tasks
   - compute logit of 'correct answer'
   - compute logit diffs due to ablation
     - we can do this dor each layer
@@ -10,17 +9,6 @@
 - dataset view:
   - aggregate loss over all task examples
 
-
-# Experiment Agent
-
-## Experiment 1: remove subsets of layers
-
-- make function that runs the remove-layers experiment for a given configuration
-- make agent with workflow:
-  - run this experiment in configuration c_0
-  - look at the output, summarize it, relate to h0, come up with h1
-  - decide on next configuration c_1 to rerun the experiment
-  - repeat
 
 
 # Sparse Transformer

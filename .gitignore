@@ -1,2 +1,4 @@
 .minichain/
 .cache/
+__pycache__/
+.vscode/

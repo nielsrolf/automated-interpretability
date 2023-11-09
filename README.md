@@ -1,11 +1,20 @@
-# Synthetic datasets for interpretability research
+# Automated Interpretability Research
 
 At least for now this will be a messy collection of scripts and outputs that help me evaluate models on different tasks.
 
+Overview
 
-# Notes
+- dumbdb.py: simple experiment data tracker
+- generate_tasks.py: generate synthetic tasks and prompts for those tasks
+- Layer_Permutation.ipynb: corrupt gpt-2-small by skipping, repeating or permuting its layers - messy with notes
+- permuted_layers.py: corrupt gpt-2-small by skipping, repeating or permuting its layers
+- research_agent.py: a GPT-agent that runs and annotates many versions of an experiment
 
-## Automating search using GPT agents
+
+## Notes
+
+### Automating search using GPT agents
+
 - a lot of work consists of the following loop:
   - come up with a certain type of experiment, hypothesis 0
   - run this experiment in configuration c_0
@@ -14,23 +23,14 @@ At least for now this will be a messy collection of scripts and outputs that hel
   - repeat
 - we can automate this loop to search for interesting hypothesis about the role of different layers
 
+### Experiment style
 
-## Prompt
-The following is a result of an experiment with a language model. We ablated certain layers, meaning: ..
-Consider this example:
-{
-    "prompt": "1 + 1 = ",
-    "completions": {
-        "{layers: 0}": "= = = "
-        "{layers: 0, 1}": "___..."
-        ...
-    }
-}
-It means that if only layer 0 is used, the completion for the prompt "1 + 1 = " is "= = ".
-When layers 0 and 1 were used, we got the next completion, and so on.
-
-Please describe notable events such as:
-{
-    "{layers: 0}": "Always repeats the last token",
-    "{layers: 0-8}": "First to create grammatically correct sentences",
-}
+- for the start, the experiment style will be:
+  - corrupt a model, e.g. by 
+    - skipping parts of the model
+    - activation patching (soon)
+  - evaluate the effect
+    - how does it speak?
+    - what tokens are more/less likely?
+    - whats the effect on the loss?
+  - gpt's task is then to find interesting ways to corrupt the model and refine hypothesis about what is happening where
