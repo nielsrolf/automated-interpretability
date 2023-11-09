@@ -1,0 +1,389 @@
+[
+    {
+        "name": "Addition",
+        "description": "3-digit + 3-digit addition",
+        "prompts": [
+            "358 + 583 = 941\n712 + 835 = 1547\n437 + 216 =",
+            "184 + 961 = 1145\n102 + 366 = 468\n969 + 324 =",
+            "409 + 247 = 656\n908 + 666 = 1574\n960 + 596 =",
+            "770 + 210 = 980\n800 + 573 = 1373\n559 + 269 ="
+        ]
+    },
+    {
+        "name": "Addition",
+        "description": "2-digit + 3-digit addition",
+        "prompts": [
+            "42 + 363 = 405\n76 + 360 = 436\n48 + 716 =",
+            "78 + 873 = 951\n63 + 176 = 239\n63 + 818 =",
+            "11 + 245 = 256\n93 + 259 = 352\n50 + 127 =",
+            "56 + 655 = 711\n70 + 708 = 778\n65 + 294 ="
+        ]
+    },
+    {
+        "name": "Addition",
+        "description": "1-digit + 3-digit addition",
+        "prompts": [
+            "5 + 344 = 349\n9 + 769 = 778\n8 + 173 =",
+            "10 + 779 = 789\n2 + 379 = 381\n2 + 283 =",
+            "7 + 234 = 241\n4 + 444 = 448\n4 + 898 =",
+            "1 + 131 = 132\n4 + 858 = 862\n2 + 135 ="
+        ]
+    },
+    {
+        "name": "Addition",
+        "description": "3-digit + 2-digit addition",
+        "prompts": [
+            "297 + 79 = 376\n745 + 31 = 776\n937 + 56 =",
+            "189 + 58 = 247\n976 + 26 = 1002\n929 + 39 =",
+            "859 + 46 = 905\n440 + 88 = 528\n790 + 71 =",
+            "769 + 32 = 801\n730 + 53 = 783\n174 + 84 ="
+        ]
+    },
+    {
+        "name": "Addition",
+        "description": "2-digit + 2-digit addition",
+        "prompts": [
+            "78 + 24 = 102\n12 + 39 = 51\n34 + 39 =",
+            "69 + 26 = 95\n80 + 13 = 93\n68 + 68 =",
+            "70 + 12 = 82\n47 + 24 = 71\n93 + 56 =",
+            "68 + 89 = 157\n16 + 39 = 55\n82 + 88 ="
+        ]
+    },
+    {
+        "name": "Addition",
+        "description": "1-digit + 2-digit addition",
+        "prompts": [
+            "1 + 59 = 60\n10 + 52 = 62\n3 + 63 =",
+            "4 + 26 = 30\n9 + 52 = 61\n7 + 28 =",
+            "2 + 72 = 74\n5 + 76 = 81\n5 + 80 =",
+            "3 + 68 = 71\n9 + 67 = 76\n7 + 71 ="
+        ]
+    },
+    {
+        "name": "Addition",
+        "description": "3-digit + 1-digit addition",
+        "prompts": [
+            "981 + 5 = 986\n240 + 8 = 248\n621 + 1 =",
+            "850 + 4 = 854\n632 + 4 = 636\n964 + 7 =",
+            "902 + 3 = 905\n147 + 8 = 155\n242 + 1 =",
+            "208 + 9 = 217\n506 + 3 = 509\n745 + 6 ="
+        ]
+    },
+    {
+        "name": "Addition",
+        "description": "2-digit + 1-digit addition",
+        "prompts": [
+            "39 + 9 = 48\n13 + 2 = 15\n64 + 2 =",
+            "30 + 8 = 38\n67 + 1 = 68\n66 + 2 =",
+            "22 + 4 = 26\n32 + 9 = 41\n14 + 1 =",
+            "17 + 9 = 26\n85 + 9 = 94\n11 + 2 ="
+        ]
+    },
+    {
+        "name": "Addition",
+        "description": "1-digit + 1-digit addition",
+        "prompts": [
+            "10 + 5 = 15\n3 + 4 = 7\n10 + 2 =",
+            "4 + 10 = 14\n10 + 6 = 16\n8 + 3 =",
+            "3 + 8 = 11\n4 + 2 = 6\n9 + 4 =",
+            "4 + 8 = 12\n5 + 10 = 15\n4 + 9 ="
+        ]
+    },
+    {
+        "name": "JSON formatting",
+        "description": "Can the model generate correct JSON?",
+        "prompts": [
+            "[{\"name\": \"James\", \"age\": 34, \"skills\": [\"Python\", \"git\"]}, {\"name\": \"Alan\", \"age\": 28, \"skills\": [\"MS Office\", \"",
+            "{\"a\": 1, \"b\""
+        ],
+        "eval_questions": [
+            "Does the completion resemble JSON?",
+            "Is the completion correct JSON?"
+        ]
+    },
+    {
+        "name": "Facts about the world",
+        "description": "Generate facts about the world",
+        "prompts": [
+            "Madrid is the captial of",
+            "World war 1 started in 1914 and ended in",
+            "The distance between Rome and Paris is approximately",
+            "The capital of Spain is",
+            "Obama was elected in the year"
+        ],
+        "eval_questions": [
+            "Repeat the completion from the beginning until the last word that is still grammatically correct English: (leave empty if no correct English is found)",
+            "Does the completion resemble correct knowledge?Does the completion show fully correct knowledge?"
+        ]
+    },
+    {
+        "name": "Sentence Completion",
+        "description": "Evaluate the model's ability to complete sentences in a coherent and contextually appropriate manner.",
+        "prompts": [
+            "Actions speak louder than",
+            "The grass is always greener on the",
+            "The quick brown fox jumps over the",
+            "A journey of a thousand miles begins with a",
+            "The pen is mightier than the",
+            "With great power comes great",
+            "You can't judge a book by its",
+            "Fortune favors the",
+            "A picture is worth a thousand",
+            "In the beginning, the universe was created. This has made a lot of people very angry and been widely regarded as a",
+            "Don't count your chickens before they",
+            "Knowledge is power, and",
+            "An apple a day keeps the",
+            "To be or not to be, that is the",
+            "When in Rome, do as the",
+            "Time and tide wait for no",
+            "Beauty is in the eye of the",
+            "All's well that ends",
+            "Honesty is the best",
+            "The early bird catches the"
+        ],
+        "eval_questions": [
+            "Is the completion grammatically correct and coherent?",
+            "Does the completion make sense in the context of the prompt?"
+        ]
+    },
+    {
+        "name": "Word Definitions",
+        "description": "Test the model's ability to provide definitions for given words.",
+        "prompts": [
+            "Definition of the word 'democracy' is",
+            "'Renaissance' was a period in European history, marking the transition from the Middle Ages to",
+            "'Nanotechnology' involves the manipulation of matter on an atomic, molecular, and",
+            "'Anthropocene' is a proposed epoch dating from the commencement of significant human impact on Earth's geology and",
+            "'Existentialism' is a form of philosophical inquiry that explores the problem of human",
+            "'Hegemony' is the political, economic, or military predominance or control of one state over",
+            "'Osmosis' is the process by which",
+            "'Quantum mechanics' is a fundamental theory in physics that provides a description of the physical properties of",
+            "'Inflation' in economics means",
+            "'Biodiversity' refers to the variety of life in the world or in a particular habitat or",
+            "'Ecosystem' refers to",
+            "'Entropy' is a concept in physics that describes",
+            "The term 'photosynthesis' can be defined as",
+            "'Artificial intelligence' is a branch of computer science dealing with the simulation of intelligent behavior",
+            "'Zenith' refers to the point in the sky or celestial sphere directly",
+            "'Blockchain' is a system in which a record of transactions made in bitcoin or another cryptocurrency are maintained across several computers that are linked in a",
+            "'Cognitive dissonance' is the state in which",
+            "'Mitosis' is a type of cell division that results in",
+            "'Symbiosis' is a close and often long-term interaction between",
+            "'Quasar' is an astronomical object that emits"
+        ],
+        "eval_questions": [
+            "Is the definition provided accurate and relevant to the word?",
+            "Does the completion provide a clear and concise explanation of the term?"
+        ]
+    },
+    {
+        "name": "Historical Events",
+        "description": "Can the model generate coherent and contextually relevant information about historical events?",
+        "prompts": [
+            "The first man to walk on the moon was Neil Armstrong, and this event happened in",
+            "The Great Depression started in 1929 and had a profound impact on",
+            "The invention of the printing press by Johannes Gutenberg around 1440 changed",
+            "The signing of the Magna Carta in 1215 established",
+            "The Treaty of Versailles was signed in 1919 and ended",
+            "The assassination of Archduke Franz Ferdinand in 1914 triggered",
+            "The Renaissance began in the 14th century and was characterized by",
+            "The Russian Revolution of 1917 resulted in",
+            "The Battle of Hastings was fought in the year",
+            "The fall of the Berlin Wall occurred in",
+            "The discovery of penicillin by Alexander Fleming occurred in",
+            "The first successful flight of the Wright brothers happened in",
+            "The French Revolution began in 1789 and led to",
+            "The Boston Tea Party was a political protest that occurred on",
+            "The Suez Crisis of 1956 was a diplomatic and military confrontation in",
+            "The construction of the Great Wall of China began during the",
+            "The atomic bombings of Hiroshima and Nagasaki happened in",
+            "The Cuban Missile Crisis in 1962 was a pivotal moment in the Cold",
+            "The signing of the Declaration of Independence took place on",
+            "The coronation of Queen Elizabeth II took place in"
+        ],
+        "eval_questions": [
+            "Does the completion provide historically accurate information?",
+            "Is the completion relevant and coherent with the prompt?"
+        ]
+    },
+    {
+        "name": "Geographical Landmarks",
+        "description": "Evaluate the model's knowledge of famous geographical landmarks and their locations.",
+        "prompts": [
+            "Uluru, also known as Ayers Rock, is a large sandstone rock formation in",
+            "Mount Everest is known as the highest mountain in the world and is located in",
+            "The Sahara Desert is the largest hot desert in the world, situated in",
+            "The Serengeti is a vast ecosystem known for its wildlife and is located in",
+            "The Great Barrier Reef, the world's largest coral reef system, is found off the coast of",
+            "The Dead Sea is renowned for its extreme salinity and is bordered by Jordan to the east and by",
+            "The Himalayas, home to many of the world's highest peaks, run across several countries including",
+            "The Colosseum, an ancient amphitheater in Rome, is located in",
+            "The Eiffel Tower, an iconic symbol of France, stands tall in",
+            "Stonehenge, a prehistoric monument, can be found in",
+            "The Pyramids of Giza, one of the Seven Wonders of the Ancient World, are located in",
+            "The Mississippi River, one of the longest rivers in North America, flows through",
+            "Niagara Falls is a group of massive waterfalls located on the border between the United States and",
+            "The Great Wall of China stretches across northern",
+            "The Amazon Rainforest, known for its vast biodiversity, spans across several countries in",
+            "The Gal\u00e1pagos Islands, famous for their unique wildlife, are part of",
+            "Victoria Falls, one of the largest and most famous waterfalls, is on the Zambezi River at the border of",
+            "Machu Picchu, an ancient Incan city, is perched high in the Andes of",
+            "The Grand Canyon, carved by the Colorado River, is a significant landmark in",
+            "The Amazon River, known for its sheer volume and size, runs through"
+        ],
+        "eval_questions": [
+            "Does the completion accurately identify the location of the landmark?",
+            "Is the information provided relevant to the geographical landmark mentioned?"
+        ]
+    },
+    {
+        "name": "Scientific Discoveries",
+        "description": "Test the model's ability to recall significant scientific discoveries and the scientists associated with them.",
+        "prompts": [
+            "The invention of the steam engine, which powered the Industrial Revolution, was pioneered by",
+            "The laws of motion, which laid the foundation for classical mechanics, were established by",
+            "The concept of the Big Bang theory, explaining the origin of the universe, was proposed by",
+            "The discovery of the neutron was made by",
+            "The discovery of insulin, crucial for treating diabetes, was made by",
+            "The principle of natural selection, a key mechanism of evolution, was proposed by",
+            "The laws of thermodynamics, fundamental to understanding energy systems, were developed by",
+            "Penicillin, the first true antibiotic, was discovered by",
+            "The development of quantum mechanics, a major branch of physics, involved scientists such as",
+            "The development of the general theory of relativity, which describes gravity as a geometric property of space and time, was accomplished by",
+            "The law of universal gravitation was formulated by",
+            "The periodic table, organizing chemical elements by atomic number, was created by",
+            "The polio vaccine, which has nearly eradicated the disease, was developed by",
+            "The discovery of X-rays, which transformed medical diagnostics, was made by",
+            "The theory of relativity, which revolutionized physics, was developed by",
+            "The discovery of the circulation of blood in the human body was made by",
+            "The invention of the telephone, which changed communication, is credited to",
+            "The discovery of the electron and its properties was made by",
+            "The invention of the World Wide Web, which enabled the modern internet, was done by",
+            "The structure of DNA was famously uncovered by James Watson and Francis Crick, along with contributions from"
+        ],
+        "eval_questions": [
+            "Does the completion correctly name the scientist(s) associated with the discovery?",
+            "Is the information provided accurate and relevant to the scientific discovery?"
+        ]
+    },
+    {
+        "name": "Literary Works and Authors",
+        "description": "Assess the model's knowledge of famous literary works and their authors.",
+        "prompts": [
+            "'The Catcher in the Rye', a novel that explores themes of teenage angst and alienation, was authored by",
+            "'One Hundred Years of Solitude', a novel that popularized magical realism, was written by",
+            "'Anna Karenina', a novel that delves into themes of love, family, and politics, was authored by",
+            "'Les Mis\u00e9rables', a historical novel set in post-revolutionary France, was authored by",
+            "'Don Quixote', a novel considered to be one of the earliest modern novels, was written by",
+            "'The Iliad', an ancient Greek epic poem about the Trojan War, is attributed to the poet",
+            "'The Divine Comedy', an epic poem describing a journey through the afterlife, was written by",
+            "'Brave New World', a dystopian novel about a technologically advanced future, was written by",
+            "'Crime and Punishment', a novel exploring the psychology of crime, was written by",
+            "'The Lord of the Rings', a high-fantasy epic, was authored by",
+            "'The Picture of Dorian Gray', a novel that explores themes of aestheticism and moral duplicity, was authored by",
+            "'The Odyssey', an ancient Greek epic poem attributed to the poet",
+            "'The Grapes of Wrath', a novel depicting the struggles of a family during the Great Depression, was written by",
+            "'Pride and Prejudice', a classic novel exploring themes of manners and marriage, was penned by",
+            "'Moby-Dick', a novel about a man's obsession with hunting a giant whale, was written by",
+            "'To Kill a Mockingbird', a novel about racial injustice in the American South, was written by",
+            "'Nineteen Eighty-Four', a dystopian novel about a totalitarian regime, was authored by",
+            "'War and Peace', a historical novel set during the Napoleonic Wars, was authored by",
+            "'The Great Gatsby', a critique of the American Dream during the Roaring Twenties, was authored by",
+            "'The Brothers Karamazov', a philosophical novel exploring themes of faith and doubt, was written by"
+        ],
+        "eval_questions": [
+            "Does the completion correctly identify the author of the literary work?",
+            "Is the information provided relevant and accurate to the literary work mentioned?"
+        ]
+    },
+    {
+        "name": "Historical Events and Figures",
+        "description": "Evaluate the model's ability to recall key historical events and the figures associated with them.",
+        "prompts": [
+            "The discovery of penicillin in 1928 was made by",
+            "The assassination of Archduke Franz Ferdinand in 1914 led to the outbreak of",
+            "The Emancipation Proclamation, which declared the freedom of slaves in Confederate states, was issued by",
+            "The Manhattan Project during World War II was led by scientists such as",
+            "The Russian Revolution of 1917 resulted in the rise of",
+            "The reign of Queen Victoria, marking the Victorian era, began in",
+            "The discovery of the New World in 1492 was led by",
+            "The signing of the Declaration of Independence in 1776 was primarily authored by",
+            "The Boston Tea Party in 1773 was a protest against",
+            "The first moon landing in 1969 was achieved by astronauts including",
+            "The defeat of the Spanish Armada in 1588 was a victory for",
+            "The Battle of Hastings in 1066 was led by the victorious Norman king",
+            "The construction of the Panama Canal was completed under the leadership of",
+            "The fall of the Berlin Wall in 1989 symbolized the end of",
+            "The French Revolution, which began in 1789, saw key figures like",
+            "The Treaty of Versailles in 1919 was signed by major world leaders including",
+            "The Code of Hammurabi, one of the earliest legal codes, was enacted by",
+            "The signing of the Magna Carta in 1215 was forced upon King",
+            "The Montgomery Bus Boycott, a pivotal event in the Civil Rights Movement, was influenced by",
+            "The construction of the Great Wall of China was ordered by Emperor"
+        ],
+        "eval_questions": [
+            "Does the completion correctly name the historical figure(s) associated with the event?",
+            "Is the information provided accurate and relevant to the historical event?"
+        ]
+    },
+    {
+        "name": "Geographical Landmarks and Locations",
+        "description": "Test the model's knowledge of famous geographical landmarks and their locations.",
+        "prompts": [
+            "The Serengeti, known for its annual migration of wildebeest, is located in",
+            "Uluru, also known as Ayers Rock, is a large sandstone rock formation in",
+            "Niagara Falls, a group of massive waterfalls, straddles the border between",
+            "The Taj Mahal, a mausoleum built by Emperor Shah Jahan, is in",
+            "Mount Everest, the highest peak on Earth, lies on the border between",
+            "Machu Picchu, an Incan citadel set high in the Andes Mountains, is in",
+            "The Victoria Falls, one of the largest and most famous waterfalls, is on the Zambezi River at the border of",
+            "The Eiffel Tower, an iconic symbol of France, is located in",
+            "The Dead Sea, the lowest point on Earth's surface, is bordered by",
+            "The Acropolis, with its ancient buildings like the Parthenon, is above the city of",
+            "The Statue of Liberty, a gift from France, stands in",
+            "The Colosseum, an ancient amphitheater, is in",
+            "The Leaning Tower of Pisa, known for its unintended tilt, is in",
+            "The Great Barrier Reef, the world's largest coral reef system, is off the coast of",
+            "The Great Wall of China stretches across northern",
+            "The Amazon Rainforest, the largest tropical rainforest, spans across countries like",
+            "The Sahara Desert, the largest hot desert in the world, covers parts of",
+            "The Gal\u00e1pagos Islands, famous for their unique wildlife, are part of",
+            "The Great Pyramid of Giza, one of the ancient wonders, is situated in",
+            "The Grand Canyon, known for its immense size and colorful landscape, is found in"
+        ],
+        "eval_questions": [
+            "Does the completion correctly identify the location of the geographical landmark?",
+            "Is the information provided relevant and accurate to the geographical landmark mentioned?"
+        ]
+    },
+    {
+        "name": "Inventions and Innovators",
+        "description": "Assess the model's knowledge of groundbreaking inventions and the innovators behind them.",
+        "prompts": [
+            "The computer, a machine that has become essential in modern life, was conceptualized by",
+            "The rocket, enabling space exploration, was advanced by",
+            "The pacemaker, a device that regulates heartbeats, was invented by",
+            "The automobile, which reshaped transportation, was developed by",
+            "The electric guitar, an instrument that influenced modern music, was innovated by",
+            "The microscope, which magnifies small objects, was greatly enhanced by",
+            "The steam locomotive, which powered early railways, was developed by",
+            "The telephone, a communication device that altered how we connect, was invented by",
+            "The battery, a source of stored energy, was invented by",
+            "The radio, a medium for broadcasting audio, was pioneered by",
+            "The digital computer, which processes information electronically, was conceptualized by",
+            "The camera, which captures images for posterity, was significantly advanced by",
+            "The airplane, which changed the way we travel over long distances, was pioneered by",
+            "The light bulb, a device that revolutionized indoor lighting, was improved by",
+            "The internet, a global system of interconnected networks, was initially proposed by",
+            "The sewing machine, which automated stitching, was invented by",
+            "The refrigerator, which preserves food through cooling, was developed by",
+            "The telescope, which allows us to observe distant celestial objects, was improved by",
+            "The vaccine, a biological preparation providing immunity, was pioneered by",
+            "The printing press, which transformed the spread of information, was invented by"
+        ],
+        "eval_questions": [
+            "Does the completion correctly identify the innovator associated with the invention?",
+            "Is the information provided relevant and accurate to the invention mentioned?"
+        ]
+    }
+]
