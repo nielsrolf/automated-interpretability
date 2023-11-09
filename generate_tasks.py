@@ -12,28 +12,42 @@ def get_addition_prompt(digit_i, digit_j):
     c = a + b
     return f"{a} + {b} = {c}"
 
+def get_addition(digit_i, digit_j):
+    problem = "\n".join([get_addition_prompt(digit_i, digit_j) for _ in range(3)])
+    prompt, answer = problem.rsplit(" ", maxsplit=1)
+    return {
+        "prompt": prompt,
+        "answer": answer
+    }
+
 
 def get_addition_task_description(digit_i, digit_j, n=5):
     return {
         "name": "Addition",
         "description": f"{digit_i+1}-digit + {digit_j+1}-digit addition",
         "prompts": [
-            "\n".join([get_addition_prompt(digit_i, digit_j) for _ in range(3)]).rsplit(" ", maxsplit=1)[0]
-            for _ in range(n - 1)
+            get_addition(digit_i, digit_j)
+            for _ in range(n)
         ]
     }
 
 
-def get_random_int_dict(example):
-    return json.dumps(example)[:-random.randint(1, 10)]
+def split_to_prompt_and_completion(d):
+    d = json.dumps(d)
+    prompt, completion = d.split("<cut>")
+    return {
+        "prompt": prompt,
+        "answer": completion
+    }
 
 tasks = [
     {
         'name': 'JSON formatting',
         'description': 'Can the model generate correct JSON?',
-        'prompts': [
-            json.dumps([{'name': 'James', 'age': 34, 'skills': ['Python', 'git']}, {'name': 'Alan', 'age': 28, 'skills': ['MS Office', '<cut>']}]).split('<cut>')[0],
-            get_random_int_dict({'a': 1, 'b': 2}),
+        'examples': [
+            split_to_prompt_and_completion([{'name': 'James', 'age': 34, 'skills': ['Python', 'git']}, {'name': 'Alan', 'age': 28, 'skills': ['MS Office', 'Communication<cut>']}]),
+            split_to_prompt_and_completion({'a': 1, 'b': 2, 'c': {'d': '<cut>3'}}),
+            split_to_prompt_and_completion([{"header": {"Authorization": "Bearer ...", "Content-type": "application/<cut>json"}}]),
         ],
         'eval_questions': [
             'Does the completion resemble JSON?',
@@ -43,12 +57,27 @@ tasks = [
     {
         'name': 'Facts about the world',
         'description': 'Generate facts about the world',
-        'prompts': [
-            'Madrid is the captial of',
-            'The capital of Spain is',
-            'Obama was elected in the year',
-            'The distance between Rome and Paris is approximately',
-            'World war 1 started in 1914 and ended in',
+        'examples': [
+            {
+                "prompt": 'Madrid is the captial of',
+                "answer": "Spain"
+            },
+            {
+                "prompt": 'The capital of Spain is',
+                "answer": "Madrid"
+            },
+            {
+                "prompt": 'Obama was elected in the year',
+                "answer": "2008",            
+            },
+            {
+                "prompt": 'The distance between Rome and Paris is approximately',
+                "answer": "1500km"
+            },
+            {
+                "prompt": 'World war 1 started in 1914 and ended in',
+                "answer": "1918"
+            }
         ],
         'eval_questions': [
             'Repeat the completion from the beginning until the last word that is still grammatically correct English: (leave empty if no correct English is found)',
@@ -68,11 +97,14 @@ if not os.path.exists("tasks.json"):
 
 system_prompt = "You are a research assistant that comes up with tasks for language models. We are evaluating a model that is not finetuned for chat, so we come up with prompts that show interesting characteristics of a small language model that tries to complete the prompt. A bad prompt is therefore: 'What is the capital of France?' since it is dialogue style. A better prompt is 'The capital of Franc is'. Help the user write tasks like this, and keep in mind that we are working on gpt-2-small, so focus on basic tasks."
 
+class Example(BaseModel):
+    prompt: str = Field(..., description="Prompt that needs to be completed")
+    answer: str = Field(..., description="Ideal completion for this prompt")
 
 class NLPTask(BaseModel):
     name: str = Field(..., description="Name of the task")
     description: str = Field(..., description="Description of the task")
-    prompts: List[str] = Field(..., description="A list of prompts for this task. Should be at least 20 prompts.")
+    examples: List[Example] = Field(..., description="A list of example prompt/completion pairs for this task. Should be at least 20 examples.")
     eval_questions: List[str] = Field(..., description="Evaluation questions")
 
 class Tasks(BaseModel):
@@ -88,6 +120,7 @@ async def expand_list():
 
     with open('tasks.json', "r") as f:
         tasks = json.load(f)
+    tasks = [i for i in tasks if i['name'] != 'Addition']
     
     for i in range(3):
         user_prompt = f"Please generate 3 more tasks such as these: {json.dumps(tasks[-2:])}. Add at least 20 prompts for each task."
@@ -111,7 +144,9 @@ def clean_list():
         if task['name'] in names[:i]:
             duplicate_ids += [i]
         original_id = names.index(task['name'])
-        tasks[original_id]['prompts'] = list(set(tasks[original_id]['prompts'] + task['prompts']))
+        for example in task['examples']:
+            if not any([i==example for i in tasks[original_id]['examples']]):
+                tasks[original_id]['examples'] += [example]
     
     for i in duplicate_ids[::-1]:
         tasks.pop(i)
@@ -133,6 +168,6 @@ def clean_list():
 
 
 if __name__ == "__main__":
-    clean_list()
     # import asyncio
     # asyncio.run(expand_list())
+    clean_list()

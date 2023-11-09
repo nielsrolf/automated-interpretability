@@ -3,98 +3,252 @@
         "name": "Addition",
         "description": "3-digit + 3-digit addition",
         "prompts": [
-            "358 + 583 = 941\n712 + 835 = 1547\n437 + 216 =",
-            "184 + 961 = 1145\n102 + 366 = 468\n969 + 324 =",
-            "409 + 247 = 656\n908 + 666 = 1574\n960 + 596 =",
-            "770 + 210 = 980\n800 + 573 = 1373\n559 + 269 ="
+            {
+                "prompt": "264 + 706 = 970\n926 + 877 = 1803\n557 + 553 =",
+                "answer": "1110"
+            },
+            {
+                "prompt": "371 + 353 = 724\n232 + 651 = 883\n779 + 225 =",
+                "answer": "1004"
+            },
+            {
+                "prompt": "165 + 551 = 716\n289 + 540 = 829\n949 + 595 =",
+                "answer": "1544"
+            },
+            {
+                "prompt": "953 + 507 = 1460\n614 + 485 = 1099\n754 + 736 =",
+                "answer": "1490"
+            },
+            {
+                "prompt": "712 + 807 = 1519\n788 + 282 = 1070\n812 + 948 =",
+                "answer": "1760"
+            }
         ]
     },
     {
         "name": "Addition",
         "description": "2-digit + 3-digit addition",
         "prompts": [
-            "42 + 363 = 405\n76 + 360 = 436\n48 + 716 =",
-            "78 + 873 = 951\n63 + 176 = 239\n63 + 818 =",
-            "11 + 245 = 256\n93 + 259 = 352\n50 + 127 =",
-            "56 + 655 = 711\n70 + 708 = 778\n65 + 294 ="
+            {
+                "prompt": "91 + 686 = 777\n55 + 106 = 161\n61 + 235 =",
+                "answer": "296"
+            },
+            {
+                "prompt": "60 + 172 = 232\n11 + 873 = 884\n67 + 622 =",
+                "answer": "689"
+            },
+            {
+                "prompt": "32 + 164 = 196\n45 + 581 = 626\n87 + 316 =",
+                "answer": "403"
+            },
+            {
+                "prompt": "41 + 661 = 702\n51 + 191 = 242\n17 + 264 =",
+                "answer": "281"
+            },
+            {
+                "prompt": "47 + 384 = 431\n58 + 839 = 897\n91 + 953 =",
+                "answer": "1044"
+            }
         ]
     },
     {
         "name": "Addition",
         "description": "1-digit + 3-digit addition",
         "prompts": [
-            "5 + 344 = 349\n9 + 769 = 778\n8 + 173 =",
-            "10 + 779 = 789\n2 + 379 = 381\n2 + 283 =",
-            "7 + 234 = 241\n4 + 444 = 448\n4 + 898 =",
-            "1 + 131 = 132\n4 + 858 = 862\n2 + 135 ="
+            {
+                "prompt": "1 + 902 = 903\n8 + 595 = 603\n7 + 131 =",
+                "answer": "138"
+            },
+            {
+                "prompt": "1 + 870 = 871\n1 + 869 = 870\n5 + 879 =",
+                "answer": "884"
+            },
+            {
+                "prompt": "1 + 172 = 173\n2 + 175 = 177\n3 + 781 =",
+                "answer": "784"
+            },
+            {
+                "prompt": "6 + 641 = 647\n6 + 812 = 818\n10 + 865 =",
+                "answer": "875"
+            },
+            {
+                "prompt": "6 + 888 = 894\n10 + 563 = 573\n7 + 486 =",
+                "answer": "493"
+            }
         ]
     },
     {
         "name": "Addition",
         "description": "3-digit + 2-digit addition",
         "prompts": [
-            "297 + 79 = 376\n745 + 31 = 776\n937 + 56 =",
-            "189 + 58 = 247\n976 + 26 = 1002\n929 + 39 =",
-            "859 + 46 = 905\n440 + 88 = 528\n790 + 71 =",
-            "769 + 32 = 801\n730 + 53 = 783\n174 + 84 ="
+            {
+                "prompt": "367 + 38 = 405\n991 + 39 = 1030\n739 + 18 =",
+                "answer": "757"
+            },
+            {
+                "prompt": "113 + 35 = 148\n152 + 30 = 182\n651 + 84 =",
+                "answer": "735"
+            },
+            {
+                "prompt": "360 + 93 = 453\n407 + 14 = 421\n358 + 70 =",
+                "answer": "428"
+            },
+            {
+                "prompt": "186 + 32 = 218\n178 + 85 = 263\n632 + 67 =",
+                "answer": "699"
+            },
+            {
+                "prompt": "953 + 76 = 1029\n505 + 89 = 594\n692 + 100 =",
+                "answer": "792"
+            }
         ]
     },
     {
         "name": "Addition",
         "description": "2-digit + 2-digit addition",
         "prompts": [
-            "78 + 24 = 102\n12 + 39 = 51\n34 + 39 =",
-            "69 + 26 = 95\n80 + 13 = 93\n68 + 68 =",
-            "70 + 12 = 82\n47 + 24 = 71\n93 + 56 =",
-            "68 + 89 = 157\n16 + 39 = 55\n82 + 88 ="
+            {
+                "prompt": "39 + 48 = 87\n19 + 65 = 84\n19 + 81 =",
+                "answer": "100"
+            },
+            {
+                "prompt": "67 + 17 = 84\n10 + 37 = 47\n82 + 21 =",
+                "answer": "103"
+            },
+            {
+                "prompt": "61 + 66 = 127\n55 + 39 = 94\n17 + 77 =",
+                "answer": "94"
+            },
+            {
+                "prompt": "66 + 36 = 102\n23 + 25 = 48\n25 + 93 =",
+                "answer": "118"
+            },
+            {
+                "prompt": "33 + 26 = 59\n15 + 46 = 61\n78 + 89 =",
+                "answer": "167"
+            }
         ]
     },
     {
         "name": "Addition",
         "description": "1-digit + 2-digit addition",
         "prompts": [
-            "1 + 59 = 60\n10 + 52 = 62\n3 + 63 =",
-            "4 + 26 = 30\n9 + 52 = 61\n7 + 28 =",
-            "2 + 72 = 74\n5 + 76 = 81\n5 + 80 =",
-            "3 + 68 = 71\n9 + 67 = 76\n7 + 71 ="
+            {
+                "prompt": "6 + 47 = 53\n7 + 58 = 65\n5 + 45 =",
+                "answer": "50"
+            },
+            {
+                "prompt": "6 + 18 = 24\n6 + 71 = 77\n1 + 12 =",
+                "answer": "13"
+            },
+            {
+                "prompt": "6 + 18 = 24\n4 + 68 = 72\n5 + 82 =",
+                "answer": "87"
+            },
+            {
+                "prompt": "3 + 99 = 102\n8 + 62 = 70\n7 + 99 =",
+                "answer": "106"
+            },
+            {
+                "prompt": "3 + 12 = 15\n3 + 92 = 95\n4 + 37 =",
+                "answer": "41"
+            }
         ]
     },
     {
         "name": "Addition",
         "description": "3-digit + 1-digit addition",
         "prompts": [
-            "981 + 5 = 986\n240 + 8 = 248\n621 + 1 =",
-            "850 + 4 = 854\n632 + 4 = 636\n964 + 7 =",
-            "902 + 3 = 905\n147 + 8 = 155\n242 + 1 =",
-            "208 + 9 = 217\n506 + 3 = 509\n745 + 6 ="
+            {
+                "prompt": "575 + 1 = 576\n345 + 2 = 347\n775 + 3 =",
+                "answer": "778"
+            },
+            {
+                "prompt": "855 + 7 = 862\n640 + 6 = 646\n204 + 7 =",
+                "answer": "211"
+            },
+            {
+                "prompt": "557 + 10 = 567\n550 + 8 = 558\n405 + 6 =",
+                "answer": "411"
+            },
+            {
+                "prompt": "728 + 8 = 736\n578 + 7 = 585\n843 + 9 =",
+                "answer": "852"
+            },
+            {
+                "prompt": "374 + 8 = 382\n534 + 8 = 542\n297 + 1 =",
+                "answer": "298"
+            }
         ]
     },
     {
         "name": "Addition",
         "description": "2-digit + 1-digit addition",
         "prompts": [
-            "39 + 9 = 48\n13 + 2 = 15\n64 + 2 =",
-            "30 + 8 = 38\n67 + 1 = 68\n66 + 2 =",
-            "22 + 4 = 26\n32 + 9 = 41\n14 + 1 =",
-            "17 + 9 = 26\n85 + 9 = 94\n11 + 2 ="
+            {
+                "prompt": "83 + 10 = 93\n45 + 2 = 47\n57 + 4 =",
+                "answer": "61"
+            },
+            {
+                "prompt": "18 + 2 = 20\n43 + 8 = 51\n39 + 3 =",
+                "answer": "42"
+            },
+            {
+                "prompt": "32 + 3 = 35\n83 + 5 = 88\n34 + 3 =",
+                "answer": "37"
+            },
+            {
+                "prompt": "73 + 1 = 74\n34 + 9 = 43\n65 + 4 =",
+                "answer": "69"
+            },
+            {
+                "prompt": "67 + 5 = 72\n90 + 4 = 94\n88 + 3 =",
+                "answer": "91"
+            }
         ]
     },
     {
         "name": "Addition",
         "description": "1-digit + 1-digit addition",
         "prompts": [
-            "10 + 5 = 15\n3 + 4 = 7\n10 + 2 =",
-            "4 + 10 = 14\n10 + 6 = 16\n8 + 3 =",
-            "3 + 8 = 11\n4 + 2 = 6\n9 + 4 =",
-            "4 + 8 = 12\n5 + 10 = 15\n4 + 9 ="
+            {
+                "prompt": "10 + 7 = 17\n3 + 2 = 5\n1 + 8 =",
+                "answer": "9"
+            },
+            {
+                "prompt": "1 + 8 = 9\n6 + 9 = 15\n7 + 2 =",
+                "answer": "9"
+            },
+            {
+                "prompt": "10 + 8 = 18\n8 + 6 = 14\n10 + 7 =",
+                "answer": "17"
+            },
+            {
+                "prompt": "10 + 4 = 14\n7 + 4 = 11\n5 + 9 =",
+                "answer": "14"
+            },
+            {
+                "prompt": "5 + 8 = 13\n10 + 8 = 18\n3 + 2 =",
+                "answer": "5"
+            }
         ]
     },
     {
         "name": "JSON formatting",
         "description": "Can the model generate correct JSON?",
-        "prompts": [
-            "[{\"name\": \"James\", \"age\": 34, \"skills\": [\"Python\", \"git\"]}, {\"name\": \"Alan\", \"age\": 28, \"skills\": [\"MS Office\", \"",
-            "{\"a\": 1, \"b\""
+        "examples": [
+            {
+                "prompt": "[{\"name\": \"James\", \"age\": 34, \"skills\": [\"Python\", \"git\"]}, {\"name\": \"Alan\", \"age\": 28, \"skills\": [\"MS Office\", \"Communication",
+                "answer": "\"]}]"
+            },
+            {
+                "prompt": "{\"a\": 1, \"b\": 2, \"c\": {\"d\": \"",
+                "answer": "3\"}}"
+            },
+            {
+                "prompt": "[{\"header\": {\"Authorization\": \"Bearer ...\", \"Content-type\": \"application/",
+                "answer": "json\"}}]"
+            }
         ],
         "eval_questions": [
             "Does the completion resemble JSON?",
@@ -104,12 +258,27 @@
     {
         "name": "Facts about the world",
         "description": "Generate facts about the world",
-        "prompts": [
-            "Madrid is the captial of",
-            "World war 1 started in 1914 and ended in",
-            "The distance between Rome and Paris is approximately",
-            "The capital of Spain is",
-            "Obama was elected in the year"
+        "examples": [
+            {
+                "prompt": "Madrid is the captial of",
+                "answer": "Spain"
+            },
+            {
+                "prompt": "The capital of Spain is",
+                "answer": "Madrid"
+            },
+            {
+                "prompt": "Obama was elected in the year",
+                "answer": "2008"
+            },
+            {
+                "prompt": "The distance between Rome and Paris is approximately",
+                "answer": "1500km"
+            },
+            {
+                "prompt": "World war 1 started in 1914 and ended in",
+                "answer": "1918"
+            }
         ],
         "eval_questions": [
             "Repeat the completion from the beginning until the last word that is still grammatically correct English: (leave empty if no correct English is found)",
@@ -117,273 +286,874 @@
         ]
     },
     {
-        "name": "Sentence Completion",
-        "description": "Evaluate the model's ability to complete sentences in a coherent and contextually appropriate manner.",
-        "prompts": [
-            "Actions speak louder than",
-            "The grass is always greener on the",
-            "The quick brown fox jumps over the",
-            "A journey of a thousand miles begins with a",
-            "The pen is mightier than the",
-            "With great power comes great",
-            "You can't judge a book by its",
-            "Fortune favors the",
-            "A picture is worth a thousand",
-            "In the beginning, the universe was created. This has made a lot of people very angry and been widely regarded as a",
-            "Don't count your chickens before they",
-            "Knowledge is power, and",
-            "An apple a day keeps the",
-            "To be or not to be, that is the",
-            "When in Rome, do as the",
-            "Time and tide wait for no",
-            "Beauty is in the eye of the",
-            "All's well that ends",
-            "Honesty is the best",
-            "The early bird catches the"
+        "name": "Mathematical Operations",
+        "description": "Test the model's ability to perform basic arithmetic operations.",
+        "examples": [
+            {
+                "prompt": "2 + 2 =",
+                "answer": "4"
+            },
+            {
+                "prompt": "8 - 3 =",
+                "answer": "5"
+            },
+            {
+                "prompt": "5 * 5 =",
+                "answer": "25"
+            },
+            {
+                "prompt": "10 / 2 =",
+                "answer": "5"
+            },
+            {
+                "prompt": "3^2 =",
+                "answer": "9"
+            },
+            {
+                "prompt": "sqrt(16) =",
+                "answer": "4"
+            },
+            {
+                "prompt": "15 % 6 =",
+                "answer": "3"
+            },
+            {
+                "prompt": "1 + 1 + 1 =",
+                "answer": "3"
+            },
+            {
+                "prompt": "4 * (2 + 3) =",
+                "answer": "20"
+            },
+            {
+                "prompt": "18 / (2 + 1) =",
+                "answer": "6"
+            },
+            {
+                "prompt": "(8 - 5) * 2 =",
+                "answer": "6"
+            },
+            {
+                "prompt": "50 / 5 / 2 =",
+                "answer": "5"
+            },
+            {
+                "prompt": "7 + 8 - 4 =",
+                "answer": "11"
+            },
+            {
+                "prompt": "9 + 6 / 3 =",
+                "answer": "11"
+            },
+            {
+                "prompt": "(3 + 7) * 2 =",
+                "answer": "20"
+            },
+            {
+                "prompt": "100 - (20 / 4) =",
+                "answer": "95"
+            },
+            {
+                "prompt": "(15 % 4) + 7 =",
+                "answer": "10"
+            },
+            {
+                "prompt": "6^2 / 3 =",
+                "answer": "12"
+            },
+            {
+                "prompt": "sqrt(49) * 2 =",
+                "answer": "14"
+            },
+            {
+                "prompt": "(5 * 5) - (3 * 2) =",
+                "answer": "19"
+            }
         ],
         "eval_questions": [
-            "Is the completion grammatically correct and coherent?",
-            "Does the completion make sense in the context of the prompt?"
+            "Is the completion a correct result of the arithmetic operation?",
+            "Does the completion follow the order of operations correctly?"
         ]
     },
     {
         "name": "Word Definitions",
-        "description": "Test the model's ability to provide definitions for given words.",
-        "prompts": [
-            "Definition of the word 'democracy' is",
-            "'Renaissance' was a period in European history, marking the transition from the Middle Ages to",
-            "'Nanotechnology' involves the manipulation of matter on an atomic, molecular, and",
-            "'Anthropocene' is a proposed epoch dating from the commencement of significant human impact on Earth's geology and",
-            "'Existentialism' is a form of philosophical inquiry that explores the problem of human",
-            "'Hegemony' is the political, economic, or military predominance or control of one state over",
-            "'Osmosis' is the process by which",
-            "'Quantum mechanics' is a fundamental theory in physics that provides a description of the physical properties of",
-            "'Inflation' in economics means",
-            "'Biodiversity' refers to the variety of life in the world or in a particular habitat or",
-            "'Ecosystem' refers to",
-            "'Entropy' is a concept in physics that describes",
-            "The term 'photosynthesis' can be defined as",
-            "'Artificial intelligence' is a branch of computer science dealing with the simulation of intelligent behavior",
-            "'Zenith' refers to the point in the sky or celestial sphere directly",
-            "'Blockchain' is a system in which a record of transactions made in bitcoin or another cryptocurrency are maintained across several computers that are linked in a",
-            "'Cognitive dissonance' is the state in which",
-            "'Mitosis' is a type of cell division that results in",
-            "'Symbiosis' is a close and often long-term interaction between",
-            "'Quasar' is an astronomical object that emits"
+        "description": "Can the model provide concise definitions for given words?",
+        "examples": [
+            {
+                "prompt": "Define: apple",
+                "answer": "A fruit with red, green, or yellow skin and a sweet to tart taste."
+            },
+            {
+                "prompt": "Define: computer",
+                "answer": "An electronic device for storing and processing data, typically in binary form."
+            },
+            {
+                "prompt": "Define: ocean",
+                "answer": "A large body of salt water that covers most of the Earth's surface."
+            },
+            {
+                "prompt": "Define: democracy",
+                "answer": "A system of government by the whole population, typically through elected representatives."
+            },
+            {
+                "prompt": "Define: gravity",
+                "answer": "A force that attracts a body toward the center of the earth, or toward any other physical body having mass."
+            },
+            {
+                "prompt": "Define: empathy",
+                "answer": "The ability to understand and share the feelings of another."
+            },
+            {
+                "prompt": "Define: molecule",
+                "answer": "The smallest particle of a chemical element or compound that has the chemical properties of that element or compound."
+            },
+            {
+                "prompt": "Define: philosophy",
+                "answer": "The study of the fundamental nature of knowledge, reality, and existence."
+            },
+            {
+                "prompt": "Define: metabolism",
+                "answer": "The chemical processes that occur within a living organism in order to maintain life."
+            },
+            {
+                "prompt": "Define: revolution",
+                "answer": "A forcible overthrow of a government or social order, in favor of a new system."
+            },
+            {
+                "prompt": "Define: protein",
+                "answer": "A molecule composed of amino acids that is an essential part of the living organism."
+            },
+            {
+                "prompt": "Define: inflation",
+                "answer": "A general increase in prices and fall in the purchasing value of money."
+            },
+            {
+                "prompt": "Define: ecosystem",
+                "answer": "A biological community of interacting organisms and their physical environment."
+            },
+            {
+                "prompt": "Define: hypothesis",
+                "answer": "A proposed explanation for a phenomenon, made as a starting point for further investigation."
+            },
+            {
+                "prompt": "Define: neuron",
+                "answer": "A specialized cell transmitting nerve impulses; a nerve cell."
+            },
+            {
+                "prompt": "Define: quantum",
+                "answer": "The minimum amount of any physical entity involved in an interaction."
+            },
+            {
+                "prompt": "Define: galaxy",
+                "answer": "A system of millions or billions of stars, together with gas and dust, held together by gravitational attraction."
+            },
+            {
+                "prompt": "Define: enzyme",
+                "answer": "A substance produced by a living organism that acts as a catalyst to bring about a specific biochemical reaction."
+            },
+            {
+                "prompt": "Define: culture",
+                "answer": "The arts and other manifestations of human intellectual achievement regarded collectively."
+            },
+            {
+                "prompt": "Define: constitution",
+                "answer": "A body of fundamental principles or established precedents according to which a state or other organization is acknowledged to be governed."
+            }
         ],
         "eval_questions": [
-            "Is the definition provided accurate and relevant to the word?",
-            "Does the completion provide a clear and concise explanation of the term?"
+            "Is the completion a concise and accurate definition of the word?",
+            "Does the completion provide relevant information about the concept or object defined?"
         ]
     },
+    {
+        "name": "Rhyming Words",
+        "description": "Can the model generate words that rhyme with a given word?",
+        "examples": [
+            {
+                "prompt": "Find a word that rhymes with cat",
+                "answer": "bat"
+            },
+            {
+                "prompt": "Find a word that rhymes with tree",
+                "answer": "bee"
+            },
+            {
+                "prompt": "Find a word that rhymes with mouse",
+                "answer": "house"
+            },
+            {
+                "prompt": "Find a word that rhymes with light",
+                "answer": "night"
+            },
+            {
+                "prompt": "Find a word that rhymes with car",
+                "answer": "star"
+            },
+            {
+                "prompt": "Find a word that rhymes with blue",
+                "answer": "shoe"
+            },
+            {
+                "prompt": "Find a word that rhymes with sun",
+                "answer": "fun"
+            },
+            {
+                "prompt": "Find a word that rhymes with book",
+                "answer": "hook"
+            },
+            {
+                "prompt": "Find a word that rhymes with rain",
+                "answer": "train"
+            },
+            {
+                "prompt": "Find a word that rhymes with play",
+                "answer": "stay"
+            },
+            {
+                "prompt": "Find a word that rhymes with day",
+                "answer": "bay"
+            },
+            {
+                "prompt": "Find a word that rhymes with kite",
+                "answer": "flight"
+            },
+            {
+                "prompt": "Find a word that rhymes with duck",
+                "answer": "truck"
+            },
+            {
+                "prompt": "Find a word that rhymes with ring",
+                "answer": "sing"
+            },
+            {
+                "prompt": "Find a word that rhymes with ball",
+                "answer": "hall"
+            },
+            {
+                "prompt": "Find a word that rhymes with red",
+                "answer": "bed"
+            },
+            {
+                "prompt": "Find a word that rhymes with green",
+                "answer": "queen"
+            },
+            {
+                "prompt": "Find a word that rhymes with fish",
+                "answer": "dish"
+            },
+            {
+                "prompt": "Find a word that rhymes with sky",
+                "answer": "high"
+            },
+            {
+                "prompt": "Find a word that rhymes with bear",
+                "answer": "chair"
+            }
+        ],
+        "eval_questions": [
+            "Does the completion rhyme with the given word?",
+            "Is the completion a real word that makes sense in the context of rhyming?"
+        ]
+    },
+    {
+        "name": "Synonym Generation",
+        "description": "Can the model provide synonyms for a given word?",
+        "examples": [
+            {
+                "prompt": "Synonym for: happy",
+                "answer": "joyful"
+            },
+            {
+                "prompt": "Synonym for: sad",
+                "answer": "unhappy"
+            },
+            {
+                "prompt": "Synonym for: fast",
+                "answer": "quick"
+            },
+            {
+                "prompt": "Synonym for: slow",
+                "answer": "lethargic"
+            },
+            {
+                "prompt": "Synonym for: difficult",
+                "answer": "challenging"
+            },
+            {
+                "prompt": "Synonym for: easy",
+                "answer": "simple"
+            },
+            {
+                "prompt": "Synonym for: strong",
+                "answer": "powerful"
+            },
+            {
+                "prompt": "Synonym for: weak",
+                "answer": "frail"
+            },
+            {
+                "prompt": "Synonym for: bright",
+                "answer": "luminous"
+            },
+            {
+                "prompt": "Synonym for: dark",
+                "answer": "dim"
+            },
+            {
+                "prompt": "Synonym for: hot",
+                "answer": "scorching"
+            },
+            {
+                "prompt": "Synonym for: cold",
+                "answer": "chilly"
+            },
+            {
+                "prompt": "Synonym for: big",
+                "answer": "large"
+            },
+            {
+                "prompt": "Synonym for: small",
+                "answer": "tiny"
+            },
+            {
+                "prompt": "Synonym for: old",
+                "answer": "ancient"
+            },
+            {
+                "prompt": "Synonym for: new",
+                "answer": "modern"
+            },
+            {
+                "prompt": "Synonym for: funny",
+                "answer": "humorous"
+            },
+            {
+                "prompt": "Synonym for: serious",
+                "answer": "grave"
+            },
+            {
+                "prompt": "Synonym for: rich",
+                "answer": "wealthy"
+            },
+            {
+                "prompt": "Synonym for: poor",
+                "answer": "impoverished"
+            },
+            {
+                "prompt": "Synonym for: hot",
+                "answer": "warm"
+            },
+            {
+                "prompt": "Synonym for: high",
+                "answer": "tall"
+            },
+            {
+                "prompt": "Synonym for: early",
+                "answer": "premature"
+            },
+            {
+                "prompt": "Synonym for: hard",
+                "answer": "difficult"
+            },
+            {
+                "prompt": "Synonym for: young",
+                "answer": "youthful"
+            },
+            {
+                "prompt": "Synonym for: light",
+                "answer": "bright"
+            },
+            {
+                "prompt": "Synonym for: loud",
+                "answer": "noisy"
+            },
+            {
+                "prompt": "Synonym for: sharp",
+                "answer": "keen"
+            },
+            {
+                "prompt": "Synonym for: thick",
+                "answer": "dense"
+            },
+            {
+                "prompt": "Synonym for: tight",
+                "answer": "snug"
+            },
+            {
+                "prompt": "Synonym for: deep",
+                "answer": "profound"
+            },
+            {
+                "prompt": "Synonym for: wide",
+                "answer": "broad"
+            },
+            {
+                "prompt": "Synonym for: full",
+                "answer": "packed"
+            },
+            {
+                "prompt": "Synonym for: complex",
+                "answer": "complicated"
+            }
+        ],
+        "eval_questions": [
+            "Is the completion a synonym of the given word?",
+            "Does the synonym provided fit in similar contexts as the original word?"
+        ]
+    },
+    {
+        "name": "Antonym Generation",
+        "description": "Can the model provide antonyms for a given word?",
+        "examples": [
+            {
+                "prompt": "Antonym for: happy",
+                "answer": "sad"
+            },
+            {
+                "prompt": "Antonym for: big",
+                "answer": "small"
+            },
+            {
+                "prompt": "Antonym for: hot",
+                "answer": "cold"
+            },
+            {
+                "prompt": "Antonym for: high",
+                "answer": "low"
+            },
+            {
+                "prompt": "Antonym for: early",
+                "answer": "late"
+            },
+            {
+                "prompt": "Antonym for: hard",
+                "answer": "easy"
+            },
+            {
+                "prompt": "Antonym for: strong",
+                "answer": "weak"
+            },
+            {
+                "prompt": "Antonym for: young",
+                "answer": "old"
+            },
+            {
+                "prompt": "Antonym for: fast",
+                "answer": "slow"
+            },
+            {
+                "prompt": "Antonym for: light",
+                "answer": "heavy"
+            },
+            {
+                "prompt": "Antonym for: bright",
+                "answer": "dim"
+            },
+            {
+                "prompt": "Antonym for: loud",
+                "answer": "quiet"
+            },
+            {
+                "prompt": "Antonym for: rich",
+                "answer": "poor"
+            },
+            {
+                "prompt": "Antonym for: sharp",
+                "answer": "dull"
+            },
+            {
+                "prompt": "Antonym for: thick",
+                "answer": "thin"
+            },
+            {
+                "prompt": "Antonym for: tight",
+                "answer": "loose"
+            },
+            {
+                "prompt": "Antonym for: deep",
+                "answer": "shallow"
+            },
+            {
+                "prompt": "Antonym for: wide",
+                "answer": "narrow"
+            },
+            {
+                "prompt": "Antonym for: full",
+                "answer": "empty"
+            },
+            {
+                "prompt": "Antonym for: complex",
+                "answer": "simple"
+            }
+        ],
+        "eval_questions": [
+            "Is the completion an antonym of the given word?",
+            "Does the antonym provided have an opposite meaning to the original word?"
+        ]
+    },
+    {
+        "name": "Sentence Completion",
+        "description": "Can the model complete a sentence with appropriate words or phrases?",
+        "examples": [
+            {
+                "prompt": "The cat sat on the",
+                "answer": "mat."
+            },
+            {
+                "prompt": "She opened the book to the",
+                "answer": "page she had bookmarked."
+            },
+            {
+                "prompt": "He quickly ran to the",
+                "answer": "store before it closed."
+            },
+            {
+                "prompt": "The sun set over the",
+                "answer": "horizon, painting the sky with colors."
+            },
+            {
+                "prompt": "The flowers in the garden were",
+                "answer": "blooming beautifully."
+            },
+            {
+                "prompt": "The room was filled with",
+                "answer": "laughter and conversation."
+            },
+            {
+                "prompt": "The ancient ruins stood as a testament to",
+                "answer": "a bygone era."
+            },
+            {
+                "prompt": "The artist picked up her brush and",
+                "answer": "began to paint the canvas."
+            },
+            {
+                "prompt": "The detective examined the clues and",
+                "answer": "started to piece together the mystery."
+            },
+            {
+                "prompt": "The children played hide and seek in the",
+                "answer": "backyard."
+            },
+            {
+                "prompt": "The chef added a pinch of salt to the",
+                "answer": "sauce to enhance the flavor."
+            },
+            {
+                "prompt": "The mountain climber reached the peak and",
+                "answer": "gazed at the stunning view."
+            },
+            {
+                "prompt": "The student studied hard for the",
+                "answer": "upcoming exams."
+            },
+            {
+                "prompt": "The music echoed through the",
+                "answer": "hall, creating a magical atmosphere."
+            },
+            {
+                "prompt": "The author wrote the last sentence of the",
+                "answer": "novel with a sense of accomplishment."
+            },
+            {
+                "prompt": "The waves crashed against the",
+                "answer": "shoreline with a steady rhythm."
+            },
+            {
+                "prompt": "The wind howled through the",
+                "answer": "trees on the stormy night."
+            },
+            {
+                "prompt": "The actor took a bow as the audience",
+                "answer": "applauded loudly."
+            },
+            {
+                "prompt": "The inventor unveiled his latest creation, which",
+                "answer": "promised to revolutionize the industry."
+            },
+            {
+                "prompt": "The teacher explained the concept until she was sure the students",
+                "answer": "understood it."
+            }
+        ],
+        "eval_questions": [
+            "Does the completion make sense in the context of the sentence?",
+            "Is the sentence grammatically correct and coherent after completion?"
+        ]
+    },
+    {
+        "name": "Homophone Identification",
+        "description": "Can the model identify homophones for a given word?",
+        "examples": [
+            {
+                "prompt": "Homophone for: sea",
+                "answer": "see"
+            },
+            {
+                "prompt": "Homophone for: knight",
+                "answer": "night"
+            },
+            {
+                "prompt": "Homophone for: flour",
+                "answer": "flower"
+            },
+            {
+                "prompt": "Homophone for: mail",
+                "answer": "male"
+            },
+            {
+                "prompt": "Homophone for: right",
+                "answer": "write"
+            },
+            {
+                "prompt": "Homophone for: peace",
+                "answer": "piece"
+            },
+            {
+                "prompt": "Homophone for: sun",
+                "answer": "son"
+            },
+            {
+                "prompt": "Homophone for: no",
+                "answer": "know"
+            },
+            {
+                "prompt": "Homophone for: one",
+                "answer": "won"
+            },
+            {
+                "prompt": "Homophone for: to",
+                "answer": "two"
+            },
+            {
+                "prompt": "Homophone for: break",
+                "answer": "brake"
+            },
+            {
+                "prompt": "Homophone for: cell",
+                "answer": "sell"
+            },
+            {
+                "prompt": "Homophone for: meat",
+                "answer": "meet"
+            },
+            {
+                "prompt": "Homophone for: road",
+                "answer": "rode"
+            },
+            {
+                "prompt": "Homophone for: sail",
+                "answer": "sale"
+            },
+            {
+                "prompt": "Homophone for: sole",
+                "answer": "soul"
+            },
+            {
+                "prompt": "Homophone for: their",
+                "answer": "there"
+            },
+            {
+                "prompt": "Homophone for: waist",
+                "answer": "waste"
+            },
+            {
+                "prompt": "Homophone for: week",
+                "answer": "weak"
+            },
+            {
+                "prompt": "Homophone for: which",
+                "answer": "witch"
+            }
+        ],
+        "eval_questions": [
+            "Is the completion a homophone of the given word?",
+            "Does the homophone provided sound the same as the original word?"
+        ]
+    },
+    {
+        "name": "Common Phrase Completion",
+        "description": "Can the model complete a common phrase or saying?",
+        "examples": [
+            {
+                "prompt": "A penny for your",
+                "answer": "thoughts."
+            },
+            {
+                "prompt": "An apple a day keeps the",
+                "answer": "doctor away."
+            },
+            {
+                "prompt": "Better late than",
+                "answer": "never."
+            },
+            {
+                "prompt": "Birds of a feather flock",
+                "answer": "together."
+            },
+            {
+                "prompt": "Actions speak louder than",
+                "answer": "words."
+            },
+            {
+                "prompt": "Every cloud has a silver",
+                "answer": "lining."
+            },
+            {
+                "prompt": "Great minds think",
+                "answer": "alike."
+            },
+            {
+                "prompt": "It's raining cats and",
+                "answer": "dogs."
+            },
+            {
+                "prompt": "Laughter is the best",
+                "answer": "medicine."
+            },
+            {
+                "prompt": "Once bitten, twice",
+                "answer": "shy."
+            },
+            {
+                "prompt": "Out of sight, out of",
+                "answer": "mind."
+            },
+            {
+                "prompt": "The early bird catches the",
+                "answer": "worm."
+            },
+            {
+                "prompt": "Time heals all",
+                "answer": "wounds."
+            },
+            {
+                "prompt": "When in Rome, do as the",
+                "answer": "Romans do."
+            },
+            {
+                "prompt": "You can't judge a book by its",
+                "answer": "cover."
+            },
+            {
+                "prompt": "Absence makes the heart grow",
+                "answer": "fonder."
+            },
+            {
+                "prompt": "All that glitters is not",
+                "answer": "gold."
+            },
+            {
+                "prompt": "Don't count your chickens before they",
+                "answer": "hatch."
+            },
+            {
+                "prompt": "Good things come to those who",
+                "answer": "wait."
+            },
+            {
+                "prompt": "Ignorance is",
+                "answer": "bliss."
+            },
+            {
+                "prompt": "Knowledge is",
+                "answer": "power."
+            }
+        ],
+        "eval_questions": [
+            "Does the completion correctly finish the common phrase or saying?",
+            "Is the phrase recognizable and commonly used after completion?"
+        ]
+    },
+    
     {
         "name": "Historical Events",
-        "description": "Can the model generate coherent and contextually relevant information about historical events?",
-        "prompts": [
-            "The first man to walk on the moon was Neil Armstrong, and this event happened in",
-            "The Great Depression started in 1929 and had a profound impact on",
-            "The invention of the printing press by Johannes Gutenberg around 1440 changed",
-            "The signing of the Magna Carta in 1215 established",
-            "The Treaty of Versailles was signed in 1919 and ended",
-            "The assassination of Archduke Franz Ferdinand in 1914 triggered",
-            "The Renaissance began in the 14th century and was characterized by",
-            "The Russian Revolution of 1917 resulted in",
-            "The Battle of Hastings was fought in the year",
-            "The fall of the Berlin Wall occurred in",
-            "The discovery of penicillin by Alexander Fleming occurred in",
-            "The first successful flight of the Wright brothers happened in",
-            "The French Revolution began in 1789 and led to",
-            "The Boston Tea Party was a political protest that occurred on",
-            "The Suez Crisis of 1956 was a diplomatic and military confrontation in",
-            "The construction of the Great Wall of China began during the",
-            "The atomic bombings of Hiroshima and Nagasaki happened in",
-            "The Cuban Missile Crisis in 1962 was a pivotal moment in the Cold",
-            "The signing of the Declaration of Independence took place on",
-            "The coronation of Queen Elizabeth II took place in"
+        "description": "Can the model recall significant historical events and their details?",
+        "examples": [
+            {
+                "prompt": "The Declaration of Independence was signed in",
+                "answer": "1776."
+            },
+            {
+                "prompt": "The Great Wall of China was built during the",
+                "answer": "Ming Dynasty."
+            },
+            {
+                "prompt": "The Titanic sank in the year",
+                "answer": "1912."
+            },
+            {
+                "prompt": "World War II began in",
+                "answer": "1939."
+            },
+            {
+                "prompt": "The first man to walk on the moon did so in",
+                "answer": "1969."
+            },
+            {
+                "prompt": "The Berlin Wall fell in",
+                "answer": "1989."
+            },
+            {
+                "prompt": "The Renaissance was a cultural movement that began in",
+                "answer": "14th-century Europe."
+            },
+            {
+                "prompt": "The Magna Carta was signed in",
+                "answer": "1215."
+            },
+            {
+                "prompt": "The Russian Revolution took place in",
+                "answer": "1917."
+            },
+            {
+                "prompt": "The first successful airplane flight was by the Wright brothers in",
+                "answer": "1903."
+            },
+            {
+                "prompt": "The invention of the printing press by Johannes Gutenberg occurred around",
+                "answer": "1440."
+            },
+            {
+                "prompt": "The Battle of Hastings was fought in",
+                "answer": "1066."
+            },
+            {
+                "prompt": "The atomic bombings of Hiroshima and Nagasaki happened in",
+                "answer": "1945."
+            },
+            {
+                "prompt": "The French Revolution started in",
+                "answer": "1789."
+            },
+            {
+                "prompt": "The discovery of penicillin by Alexander Fleming was in",
+                "answer": "1928."
+            },
+            {
+                "prompt": "The construction of the Panama Canal was completed in",
+                "answer": "1914."
+            },
+            {
+                "prompt": "The first programmable computer, the Z3, was completed in",
+                "answer": "1941."
+            },
+            {
+                "prompt": "The Suez Canal was officially opened in",
+                "answer": "1869."
+            },
+            {
+                "prompt": "The signing of the Treaty of Versailles ended World War I in",
+                "answer": "1919."
+            },
+            {
+                "prompt": "The first human heart transplant was performed in",
+                "answer": "1967."
+            }
         ],
         "eval_questions": [
-            "Does the completion provide historically accurate information?",
-            "Is the completion relevant and coherent with the prompt?"
-        ]
-    },
-    {
-        "name": "Geographical Landmarks",
-        "description": "Evaluate the model's knowledge of famous geographical landmarks and their locations.",
-        "prompts": [
-            "Uluru, also known as Ayers Rock, is a large sandstone rock formation in",
-            "Mount Everest is known as the highest mountain in the world and is located in",
-            "The Sahara Desert is the largest hot desert in the world, situated in",
-            "The Serengeti is a vast ecosystem known for its wildlife and is located in",
-            "The Great Barrier Reef, the world's largest coral reef system, is found off the coast of",
-            "The Dead Sea is renowned for its extreme salinity and is bordered by Jordan to the east and by",
-            "The Himalayas, home to many of the world's highest peaks, run across several countries including",
-            "The Colosseum, an ancient amphitheater in Rome, is located in",
-            "The Eiffel Tower, an iconic symbol of France, stands tall in",
-            "Stonehenge, a prehistoric monument, can be found in",
-            "The Pyramids of Giza, one of the Seven Wonders of the Ancient World, are located in",
-            "The Mississippi River, one of the longest rivers in North America, flows through",
-            "Niagara Falls is a group of massive waterfalls located on the border between the United States and",
-            "The Great Wall of China stretches across northern",
-            "The Amazon Rainforest, known for its vast biodiversity, spans across several countries in",
-            "The Gal\u00e1pagos Islands, famous for their unique wildlife, are part of",
-            "Victoria Falls, one of the largest and most famous waterfalls, is on the Zambezi River at the border of",
-            "Machu Picchu, an ancient Incan city, is perched high in the Andes of",
-            "The Grand Canyon, carved by the Colorado River, is a significant landmark in",
-            "The Amazon River, known for its sheer volume and size, runs through"
-        ],
-        "eval_questions": [
-            "Does the completion accurately identify the location of the landmark?",
-            "Is the information provided relevant to the geographical landmark mentioned?"
-        ]
-    },
-    {
-        "name": "Scientific Discoveries",
-        "description": "Test the model's ability to recall significant scientific discoveries and the scientists associated with them.",
-        "prompts": [
-            "The invention of the steam engine, which powered the Industrial Revolution, was pioneered by",
-            "The laws of motion, which laid the foundation for classical mechanics, were established by",
-            "The concept of the Big Bang theory, explaining the origin of the universe, was proposed by",
-            "The discovery of the neutron was made by",
-            "The discovery of insulin, crucial for treating diabetes, was made by",
-            "The principle of natural selection, a key mechanism of evolution, was proposed by",
-            "The laws of thermodynamics, fundamental to understanding energy systems, were developed by",
-            "Penicillin, the first true antibiotic, was discovered by",
-            "The development of quantum mechanics, a major branch of physics, involved scientists such as",
-            "The development of the general theory of relativity, which describes gravity as a geometric property of space and time, was accomplished by",
-            "The law of universal gravitation was formulated by",
-            "The periodic table, organizing chemical elements by atomic number, was created by",
-            "The polio vaccine, which has nearly eradicated the disease, was developed by",
-            "The discovery of X-rays, which transformed medical diagnostics, was made by",
-            "The theory of relativity, which revolutionized physics, was developed by",
-            "The discovery of the circulation of blood in the human body was made by",
-            "The invention of the telephone, which changed communication, is credited to",
-            "The discovery of the electron and its properties was made by",
-            "The invention of the World Wide Web, which enabled the modern internet, was done by",
-            "The structure of DNA was famously uncovered by James Watson and Francis Crick, along with contributions from"
-        ],
-        "eval_questions": [
-            "Does the completion correctly name the scientist(s) associated with the discovery?",
-            "Is the information provided accurate and relevant to the scientific discovery?"
-        ]
-    },
-    {
-        "name": "Literary Works and Authors",
-        "description": "Assess the model's knowledge of famous literary works and their authors.",
-        "prompts": [
-            "'The Catcher in the Rye', a novel that explores themes of teenage angst and alienation, was authored by",
-            "'One Hundred Years of Solitude', a novel that popularized magical realism, was written by",
-            "'Anna Karenina', a novel that delves into themes of love, family, and politics, was authored by",
-            "'Les Mis\u00e9rables', a historical novel set in post-revolutionary France, was authored by",
-            "'Don Quixote', a novel considered to be one of the earliest modern novels, was written by",
-            "'The Iliad', an ancient Greek epic poem about the Trojan War, is attributed to the poet",
-            "'The Divine Comedy', an epic poem describing a journey through the afterlife, was written by",
-            "'Brave New World', a dystopian novel about a technologically advanced future, was written by",
-            "'Crime and Punishment', a novel exploring the psychology of crime, was written by",
-            "'The Lord of the Rings', a high-fantasy epic, was authored by",
-            "'The Picture of Dorian Gray', a novel that explores themes of aestheticism and moral duplicity, was authored by",
-            "'The Odyssey', an ancient Greek epic poem attributed to the poet",
-            "'The Grapes of Wrath', a novel depicting the struggles of a family during the Great Depression, was written by",
-            "'Pride and Prejudice', a classic novel exploring themes of manners and marriage, was penned by",
-            "'Moby-Dick', a novel about a man's obsession with hunting a giant whale, was written by",
-            "'To Kill a Mockingbird', a novel about racial injustice in the American South, was written by",
-            "'Nineteen Eighty-Four', a dystopian novel about a totalitarian regime, was authored by",
-            "'War and Peace', a historical novel set during the Napoleonic Wars, was authored by",
-            "'The Great Gatsby', a critique of the American Dream during the Roaring Twenties, was authored by",
-            "'The Brothers Karamazov', a philosophical novel exploring themes of faith and doubt, was written by"
-        ],
-        "eval_questions": [
-            "Does the completion correctly identify the author of the literary work?",
-            "Is the information provided relevant and accurate to the literary work mentioned?"
-        ]
-    },
-    {
-        "name": "Historical Events and Figures",
-        "description": "Evaluate the model's ability to recall key historical events and the figures associated with them.",
-        "prompts": [
-            "The discovery of penicillin in 1928 was made by",
-            "The assassination of Archduke Franz Ferdinand in 1914 led to the outbreak of",
-            "The Emancipation Proclamation, which declared the freedom of slaves in Confederate states, was issued by",
-            "The Manhattan Project during World War II was led by scientists such as",
-            "The Russian Revolution of 1917 resulted in the rise of",
-            "The reign of Queen Victoria, marking the Victorian era, began in",
-            "The discovery of the New World in 1492 was led by",
-            "The signing of the Declaration of Independence in 1776 was primarily authored by",
-            "The Boston Tea Party in 1773 was a protest against",
-            "The first moon landing in 1969 was achieved by astronauts including",
-            "The defeat of the Spanish Armada in 1588 was a victory for",
-            "The Battle of Hastings in 1066 was led by the victorious Norman king",
-            "The construction of the Panama Canal was completed under the leadership of",
-            "The fall of the Berlin Wall in 1989 symbolized the end of",
-            "The French Revolution, which began in 1789, saw key figures like",
-            "The Treaty of Versailles in 1919 was signed by major world leaders including",
-            "The Code of Hammurabi, one of the earliest legal codes, was enacted by",
-            "The signing of the Magna Carta in 1215 was forced upon King",
-            "The Montgomery Bus Boycott, a pivotal event in the Civil Rights Movement, was influenced by",
-            "The construction of the Great Wall of China was ordered by Emperor"
-        ],
-        "eval_questions": [
-            "Does the completion correctly name the historical figure(s) associated with the event?",
-            "Is the information provided accurate and relevant to the historical event?"
-        ]
-    },
-    {
-        "name": "Geographical Landmarks and Locations",
-        "description": "Test the model's knowledge of famous geographical landmarks and their locations.",
-        "prompts": [
-            "The Serengeti, known for its annual migration of wildebeest, is located in",
-            "Uluru, also known as Ayers Rock, is a large sandstone rock formation in",
-            "Niagara Falls, a group of massive waterfalls, straddles the border between",
-            "The Taj Mahal, a mausoleum built by Emperor Shah Jahan, is in",
-            "Mount Everest, the highest peak on Earth, lies on the border between",
-            "Machu Picchu, an Incan citadel set high in the Andes Mountains, is in",
-            "The Victoria Falls, one of the largest and most famous waterfalls, is on the Zambezi River at the border of",
-            "The Eiffel Tower, an iconic symbol of France, is located in",
-            "The Dead Sea, the lowest point on Earth's surface, is bordered by",
-            "The Acropolis, with its ancient buildings like the Parthenon, is above the city of",
-            "The Statue of Liberty, a gift from France, stands in",
-            "The Colosseum, an ancient amphitheater, is in",
-            "The Leaning Tower of Pisa, known for its unintended tilt, is in",
-            "The Great Barrier Reef, the world's largest coral reef system, is off the coast of",
-            "The Great Wall of China stretches across northern",
-            "The Amazon Rainforest, the largest tropical rainforest, spans across countries like",
-            "The Sahara Desert, the largest hot desert in the world, covers parts of",
-            "The Gal\u00e1pagos Islands, famous for their unique wildlife, are part of",
-            "The Great Pyramid of Giza, one of the ancient wonders, is situated in",
-            "The Grand Canyon, known for its immense size and colorful landscape, is found in"
-        ],
-        "eval_questions": [
-            "Does the completion correctly identify the location of the geographical landmark?",
-            "Is the information provided relevant and accurate to the geographical landmark mentioned?"
-        ]
-    },
-    {
-        "name": "Inventions and Innovators",
-        "description": "Assess the model's knowledge of groundbreaking inventions and the innovators behind them.",
-        "prompts": [
-            "The computer, a machine that has become essential in modern life, was conceptualized by",
-            "The rocket, enabling space exploration, was advanced by",
-            "The pacemaker, a device that regulates heartbeats, was invented by",
-            "The automobile, which reshaped transportation, was developed by",
-            "The electric guitar, an instrument that influenced modern music, was innovated by",
-            "The microscope, which magnifies small objects, was greatly enhanced by",
-            "The steam locomotive, which powered early railways, was developed by",
-            "The telephone, a communication device that altered how we connect, was invented by",
-            "The battery, a source of stored energy, was invented by",
-            "The radio, a medium for broadcasting audio, was pioneered by",
-            "The digital computer, which processes information electronically, was conceptualized by",
-            "The camera, which captures images for posterity, was significantly advanced by",
-            "The airplane, which changed the way we travel over long distances, was pioneered by",
-            "The light bulb, a device that revolutionized indoor lighting, was improved by",
-            "The internet, a global system of interconnected networks, was initially proposed by",
-            "The sewing machine, which automated stitching, was invented by",
-            "The refrigerator, which preserves food through cooling, was developed by",
-            "The telescope, which allows us to observe distant celestial objects, was improved by",
-            "The vaccine, a biological preparation providing immunity, was pioneered by",
-            "The printing press, which transformed the spread of information, was invented by"
-        ],
-        "eval_questions": [
-            "Does the completion correctly identify the innovator associated with the invention?",
-            "Is the information provided relevant and accurate to the invention mentioned?"
+            "Is the completion a correct detail about the historical event?",
+            "Does the completion provide a specific and relevant fact about the event?"
         ]
     }
 ]
