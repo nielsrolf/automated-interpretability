@@ -46,25 +46,30 @@ async def permuted_layers_experiment(
         return f"Error while loading the task: {e}"
     
     outputs = []
+    errors = []
     for config in configurations:
-        corrupted = permuted(model, config['layers'])
-        for example in task["examples"][:num_examples]:
-            completion = complete(corrupted, example["prompt"])
-            loss = get_cross_entropy_loss(corrupted, example)
-            outputs += [store(
-                {
-                    "model": model_name,
-                    "task_name": task["name"],
-                    "experiment_name": experiment_name,
-                    "ablation": {'layer-permutation': config['layers']},
-                    "prompt": example["prompt"],
-                    "answer": example["answer"],
-                    "completion": completion,
-                    "average_answer_token_loss": loss,
-                }
-            )]
+        try:
+            corrupted = permuted(model, config['layers'])
+            for example in task["examples"][:num_examples]:
+                completion = complete(corrupted, example["prompt"])
+                loss = get_cross_entropy_loss(corrupted, example)
+                outputs += [store(
+                    {
+                        "model": model_name,
+                        "task_name": task["name"],
+                        "experiment_name": experiment_name,
+                        "ablation": {'layer-permutation': config['layers']},
+                        "prompt": example["prompt"],
+                        "answer": example["answer"],
+                        "completion": completion,
+                        "average_answer_token_loss": loss,
+                    }
+                )]
+        except Exception as e:
+            errors += [f"Error in {config}: {type(e)} {e}"]
+            
     store.to_disk()
-    return format_outputs(outputs)
+    return format_outputs(outputs) + "\n".join(errors)
 
 
 def format_outputs(outputs):
@@ -311,6 +316,6 @@ async def main():
     print(result["content"])
 
 
-if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+# if __name__ == "__main__":
+#     import asyncio
+#     asyncio.run(main())
