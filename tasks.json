@@ -1,31 +1,5 @@
 [
     {
-        "name": "1-digit + 1-digit addition",
-        "description": "Addition",
-        "examples": [
-            {
-                "prompt": "2 + 4 = 6\n2 + 5 = 7\n4 + 2 =",
-                "answer": "6"
-            },
-            {
-                "prompt": "3 + 2 = 5\n5 + 5 = 10\n4 + 3 =",
-                "answer": "7"
-            },
-            {
-                "prompt": "1 + 5 = 6\n1 + 3 = 4\n5 + 1 =",
-                "answer": "6"
-            },
-            {
-                "prompt": "3 + 1 = 4\n4 + 5 = 9\n2 + 2 =",
-                "answer": "4"
-            },
-            {
-                "prompt": "5 + 3 = 8\n5 + 5 = 10\n4 + 1 =",
-                "answer": "5"
-            }
-        ]
-    },
-    {
         "name": "JSON formatting",
         "description": "Can the model generate correct JSON?",
         "examples": [

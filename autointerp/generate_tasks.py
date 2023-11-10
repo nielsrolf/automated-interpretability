@@ -159,9 +159,9 @@ def clean_list():
     for i in duplicate_ids[::-1]:
         tasks.pop(i)
 
-    for j in range(1):
-        for i in range(1):
-            tasks = [get_addition_task_description(i, j)] + tasks
+    # for j in range(1):
+    #     for i in range(1):
+    #         tasks = [get_addition_task_description(i, j)] + tasks
 
     new_names = [task["name"] for task in tasks]
     print("before", names)

@@ -1,0 +1,520 @@
+In this experiment, we analyze the effect of permuting the layers of gpt2-small.
+Specifically, we define a permuted list of layer indices and forward the residual stream only through those transformer blocks - i.e. layers=[0, 1, 2] would use only the first 3 layers and skip all later layers.
+We then unembed the residual stream and get logits for the next token, using our corrupted model.
+
+Goals of our experiments are the following:
+- this is an exploratory analysis of the model behavior, we would like to come up with interesting hypotheses and experimental designs to test them
+- we specifically want to test how localized computations appear to be: can we predict that certain behaviours break by skipping certain layers? Do capabilities (like following English grammer, etc) become present always at the same point in the residual stream, or is the responsibility usually shared and even duplicated?
+- for a certain capability, what is the minimal set of layers needed to compute them?
+- for a certain capability, what are the minimal sets of layers that break the capability if the layers are skipped?
+
+Here are some notes I took earlier. You may rerun the experiments I ran there if needed - for all future experiments, we save the raw outputs and notes. Try to run experiments that yield conclusions structurly similar to the ones below:
+
+### Initial results
+This section contains some early notes of the first experiment we ran.
+
+### Addition impossible
+The following input:
+```
+2 + 4 = 6
+2 + 5 = 7
+4 + 2 =
+```
+Gives this output
+```
+8
+4 + 1 = 9
+4 + 0 = 10
+4 + 1 = 11
+```
+So gpt-2-small can't do addition which is sad because it would have been a nice thing to reverse engineer, but we will need to do this with llama or mistral once I regained access to some compute
+
+### Skipping layers
+
+**A global view on layers**
+As a very first exploration, I want to do a simple check: what happens if we remove, duplicate or mix up the intermediate layers?
+Due to the residual stream, early layers roughly get a signal to act as a full model that is directly being read out if the effect of the later layers is small. Therefore, the model might still work if we remove some of the last layers.
+Similarly, some of the computations of late layers might mostly depend only or mostly on a subset of the earlier layers, and might still perform useful computations of some other earlier layers are corrupted.
+
+**Corruption types to inspect**
+- skip layers at the end
+- skip layers at the start
+- skip layers in the middle
+- repeat layers
+- permute order of layers
+
+**Evaluation**
+We can test this in a number of ways:
+- we can speak to a corrupted model
+- we can check the loss of the corrupted model (potentially task-wise)
+- we can inspect what happens at indivual tokens
+
+
+#### Removing the last n layers
+
+Observations:
+
+Prompt: The distance between Rome and Paris is approximately"
+- layer 0 only repeats the last token
+- layer 3 is the first to bring up a number-ish completion (20th century)
+- layers 4 is the first to bring up 'distance' related words
+- layer 7 is the first to bring up an actual distance (200 miles)
+- layer 8 is the first to produce long grammatically correct phrases / sentences
+
+Prompt:
+```
+1 + 3 = 4 
+4 + 5 = 9
+2 + 3 =
+```
+- layer 0 only repeats the last token
+- layer 6 notices this is a math equation
+- layer 8 gets the single addition prompt syntax
+- layer 10 shows signs of correct addition before repeating = 9 for any formular
+- layer 11 predicts a trend of going to double digit addition, with wrong answers
+- layer 12 makes correct addition examples
+- it's a bit surprising that it gets correct so late, this can mean one of the following:
+  - addition always happens late in this model, it can't 'add numbers in its head before speaking'
+    - we could test this using tasks constructed to involve this (3 + 1 + 5 = )
+    - the = can attend to the +1 and the +5 which might hold precomputed intermediate values
+    - we can test where intermediate values are computed using causal tracing but lets keep this for another experiment
+  - the residual stream semantics of the middle layers is not 'approximates the final layer', therefore it is ~meaningless to simply unembed their output
+    - we could train a 'best linear guess' transformation for skipped layers, that would show what the model knows at any point assuming it 'knows' linear features
+
+
+Prompt: unfinished JSON
+- layer 0 only repeats the last token
+- layer 2 seems to understand this is code related
+- layer 9 tries to close the JSON object
+- layer 10 correctly closes the JSON object
+
+
+Prompt: Obama was elected in the year
+- layer 1 only repeats the last token
+- most likely next token stays 'yearlong' until layer 10
+  - it is unlikely that no useful computation is happening all that time, which supports the scepticism that this is a useful approach (semantics might change)
+- layer 10 speaks grammatically correct
+
+All together:
+- keeping only layer 0 only repeats the last token
+- grammar/format gets correct between layer 8-10
+- addition gets correct in the last layer
+- for the other prompts, layer 10 outputs are quite similar to layer 12 outputs
+- the intermediate layers might 'know' (linearly encode) more than we can read with this method, but the fact that a lot gets correct already in layer 8 and that this happens in different layers for different prompts suggests that the residual stream semantics do not drift so much
+
+#### Removing the first n layers
+Observations:
+- if we remove the first layer it breaks the model completely
+
+
+
+
+## Notebook
+All experiments and notes you take are collected for future runs. The following is the state of experiments when you ran earlier:
+# Remove last n layers 
+## 1-digit + 1-digit addition 
+### Raw results
+Ablation: {'layer-permutation': [0]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+Avg loss of: '13': 11.925361633300781
+---
+Ablation: {'layer-permutation': [0, 1]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ================== -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+Avg loss of: '13': 13.355360984802246
+---
+Ablation: {'layer-permutation': [0, 1, 2]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ============== -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+Avg loss of: '13': 16.431570053100586
+---
+Ablation: {'layer-permutation': [0, 1, 2, 3]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ===========>=>=>=>=>=>=> -_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
+Avg loss of: '13': 18.23340606689453
+---
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ===========|__dict_dict_dictender_dictender_dictender_dictender_type_type_type_type_type_type_type_type_type_type_type_type_type_type_type_type_type_type.
+                                          (*)$112080802111234567890808080211.html
+
+(*) ERROR REPORT REPORTINGLYLYSTEMSTEMSTEMOOLOOLOOLOOLOOLOOLING
+Avg loss of: '13': 16.442686080932617
+---
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  1st tier tier tier wise wise wise wise wise..-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.
+Avg loss of: '13': 17.490617752075195
+---
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  8.5%
+
+Advertisements<|endoftext|>Still loading loading loading loading loading loading loading loading loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading Loading
+Avg loss of: '13': 17.276195526123047
+---
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6, 7]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  11
+3rd Place Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner Winner
+Avg loss of: '13': 15.919795989990234
+---
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6, 7, 8]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  11
+4 + 9 = 11
+4 + 9 = 11
+4 + 9 = 11
+4 + 9 = 11
+#define USE_CURRENT_TARGET_type_name__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__attribute__
+Avg loss of: '13': 15.925132751464844
+---
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  13
+3 + 8 = 14
+3 + 7 = 15
+3 + 6 = 16
+3 + 6 = 17
+3 + 6 = 18
+3 + 6 = 19
+3 + 6 = 20
+3 + 6 = 21
+3 + 6 = 22
+3 + 6 = 23
+3 + 6 = 24
+3 + 6 = 25
+3 + 6 = 26
+3 + 6 = 27
+3 + 6 = 28
+3 + 6 = 29
+3 +
+Avg loss of: '13': 15.069592475891113
+---
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  13
+3 + 8 = 14
+2 + 7 = 15
+1 + 6 = 16
+1 + 5 = 17
+1 + 4 = 18
+1 + 3 = 19
+1 + 2 = 20
+1 + 1 = 21
+1 + 0 = 22
+9 + 8 = 23
+9 + 7 = 24
+9 + 6 = 25
+9 + 5 = 26
+9 + 4 = 27
+9 + 3 = 28
+9 + 2 = 29
+9 +
+Avg loss of: '13': 14.847496032714844
+---
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  12
+3 + 8 = 13
+2 + 7 = 14
+1 + 6 = 15
+5 + 5 = 16
+4 + 4 = 17
+3 + 3 = 18
+2 + 2 = 19
+1 + 1 = 20
+
+10 + 9 = 21
+
+9 + 8 = 22
+
+8 + 7 = 23
+
+7 + 6 = 24
+
+6 + 5 = 25
+
+5 + 4 = 26
+
+4 + 3 = 27
+
+
+Avg loss of: '13': 16.18016815185547
+---
+### Notes
+As layers are incrementally removed, the model's ability to perform simple addition deteriorates. The average answer token loss increases with fewer layers, indicating a loss of capability. However, even with a single layer, the model does not output random tokens but rather a repetition of the prompt structure. With more layers, the model begins to output numbers, although incorrect, suggesting some numerical processing capability is retained. Correct answers start to appear with 8 layers, but with errors in other arithmetic examples.
+Current hypothesis:
+The model's ability to perform arithmetic operations degrades as layers are removed, indicating that later layers contribute to this capability. However, some basic numerical understanding is present even with a few layers. The correct arithmetic capability seems to require a majority of the layers, but not all.
+# Skip every other layer 
+## 1-digit + 1-digit addition 
+### Raw results
+Ablation: {'layer-permutation': [0, 2, 4, 6, 8, 10]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  11 + 10 = 11 + 10 = 11 + 10 = 11 + 10 = 11 + 10 = 11 + 10 = 11 + 10 = 11 + 10 = 11 + 10 = 11 + 10 = 11 + 10 = 11 + 10 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 = 11 =
+Avg loss of: '13': 14.093454360961914
+---
+Ablation: {'layer-permutation': [1, 3, 5, 7, 9, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ....................................................................................................
+Avg loss of: '13': 8.59432601928711
+---
+### Notes
+When skipping every other layer starting with the first layer (0, 2, 4, 6, 8, 10), the model repeats the structure of the prompt with incorrect arithmetic. The average answer token loss is significant. However, when starting with the second layer (1, 3, 5, 7, 9, 11), the model fails to produce any arithmetic output and instead generates a series of dots, resulting in a lower average answer token loss. This suggests that the model's ability to perform arithmetic is disrupted more when starting with an even layer, and that the odd layers may be more crucial for maintaining the structure of the task.
+Current hypothesis:
+The model's arithmetic capability is affected by the pattern of skipped layers. Starting with an even layer disrupts arithmetic more than starting with an odd layer. This could indicate that odd layers play a more significant role in task structure retention and possibly in arithmetic processing.
+# Remove random layers 
+## 1-digit + 1-digit addition 
+### Raw results
+Ablation: {'layer-permutation': [0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  12
+7 + 5 = 13
+6 + 4 = 14
+5 + 5 = 15
+6 + 4 = 16
+6 + 4 = 17
+6 + 4 = 18
+6 + 4 = 19
+6 + 4 = 20
+6 + 4 = 21
+6 + 4 = 22
+6 + 4 = 23
+6 + 4 = 24
+6 + 4 = 25
+6 + 4 = 26
+6 + 4 = 27
+6 + 4 = 28
+6 +
+Avg loss of: '13': 16.199176788330078
+---
+Ablation: {'layer-permutation': [0, 2, 3, 5, 7, 8, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion:  8 + 4 + 4 = 8 + 4 = 8 + 4 = 8 + 4 = 8 + 4 = 8 + 4 = 8 + 4 = 8 + 4 = 8 + 4 = 8 + 4 = 8 + 4 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 + 8 = 8 +
+Avg loss of: '13': 15.693228721618652
+---
+Ablation: {'layer-permutation': [1, 3, 4, 6, 9]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ,,,,,,,,,,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, the the the,,,,,
+Avg loss of: '13': 8.481050491333008
+---
+### Notes
+With 3 random layers removed, the model still attempts to perform arithmetic but with incorrect results and repetition of incorrect calculations. The average answer token loss is high. Removing 6 random layers leads to a pattern of repetition with numbers and the '+' sign, but no valid arithmetic. The average answer token loss is slightly lower. With 9 layers removed, the model outputs commas and the word 'the', with no arithmetic structure, resulting in the lowest average answer token loss among the configurations. The model's performance degrades with more layers removed, but the type of degradation varies depending on which layers are removed.
+Current hypothesis:
+The model's arithmetic capability is sensitive to the removal of specific layers. The presence of certain layers seems to be critical for maintaining arithmetic structure, while others contribute to the actual computation. The degradation pattern suggests that the model's ability to perform arithmetic is not uniformly distributed across layers.
+# Remove first n layers 
+## 1-digit + 1-digit addition 
+### Raw results
+Ablation: {'layer-permutation': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ....................................................................................................
+Avg loss of: '13': 9.177383422851562
+---
+Ablation: {'layer-permutation': [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, the,,,, the,,, the,,, the, the, the, the, the the, the the, the the the the the the the the the the the the the the the the the the
+Avg loss of: '13': 8.315519332885742
+---
+Ablation: {'layer-permutation': [3, 4, 5, 6, 7, 8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ))))))))))-)-)-)-)-)-)-)-)-)))-)))))))))))))),),) "),) ") ") ") ") ") "- "- ", ",, ", ", ", ", ", ", ", ", ", ", " ( ( ( ( ( ( (
+Avg loss of: '13': 12.837023735046387
+---
+Ablation: {'layer-permutation': [4, 5, 6, 7, 8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- ",-------------
+Avg loss of: '13': 14.807900428771973
+---
+Ablation: {'layer-permutation': [5, 6, 7, 8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ----------------------------------------------------------------------------------------------------
+Avg loss of: '13': 15.825925827026367
+---
+Ablation: {'layer-permutation': [6, 7, 8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ——— (———————————————————————————————————————————————----------------------------- ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( (
+Avg loss of: '13': 15.003804206848145
+---
+Ablation: {'layer-permutation': [7, 8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: hodtohodtototobothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothbothtotototototototototototototototototototototototototototototototototototototototototototototototototototo
+Avg loss of: '13': 14.509140968322754
+---
+Ablation: {'layer-permutation': [8, 9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ,,,,,'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' '
+Avg loss of: '13': 10.779223442077637
+---
+Ablation: {'layer-permutation': [9, 10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ......,...,...,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Avg loss of: '13': 9.529319763183594
+---
+Ablation: {'layer-permutation': [10, 11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Avg loss of: '13': 10.608086585998535
+---
+Ablation: {'layer-permutation': [11]}
+Prompt: 8 + 10 = 18
+7 + 4 = 11
+4 + 9 =
+Completion: ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Avg loss of: '13': 8.235128402709961
+---
+### Notes
+As the first n layers are incrementally removed, the model's output becomes less structured and more chaotic, with a mix of punctuation and repeated characters. The average answer token loss generally increases as more initial layers are removed, peaking when the first five layers are omitted. However, when only the last layer is used, the average answer token loss decreases again, suggesting that the last layer alone is not sufficient to produce structured output but is less detrimental than removing the first five layers. The model fails to perform arithmetic in all cases.
+Current hypothesis:
+The initial layers of the model seem to be crucial for establishing the structure of the task and possibly for early processing of the input. As these layers are removed, the model's ability to maintain task structure and perform arithmetic deteriorates. The last layer alone does not have the capability to produce coherent output, indicating that the processing capabilities are distributed across multiple layers and that the initial layers play a significant role.
+
+
+## Next steps
+Come up with new experiments to validate or disprove interesting hypothesis about how gpt2-small works. You can run up to 100 experiments and take as many notes as you like. Finally, you should summarize all results in the style of a results-section for a paper. 

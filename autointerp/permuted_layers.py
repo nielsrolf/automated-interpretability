@@ -74,13 +74,15 @@ def test_permuted_layers():
     from autointerp.settings import model, tasks
     text = "I hope future AI will respect animal rights"
     text = tasks[0]['examples'][0]['prompt']
-    print(text)
-    original = complete(model, text, 20, T=1e-3)
-    print("original", original)
-    model_copy = permuted(model, list(range(len(model.blocks))))
-    completion = complete(model_copy, text, 20, T=1e-3)
-    print("completion", completion)
-    assert original == completion
+    for example in tasks[0]['examples']:
+        text = example['prompt']
+        print(text)
+        original = complete(model, text, 20, T=1e-3)
+        print("original  ", original)
+        model_copy = permuted(model, list(range(len(model.blocks))))
+        completion = complete(model_copy, text, 20, T=1e-3)
+        print("completion", completion)
+        assert original == completion
 
 
 if __name__ == "__main__":

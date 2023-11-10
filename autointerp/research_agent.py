@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 from autointerp.dumbdb import store
 from autointerp.permuted_layers import complete, get_cross_entropy_loss, permuted
 from autointerp.settings import model, model_name, tasks
+from autointerp.notes import get_notes
 
 
 class PermutedLayerExperimentConfig(BaseModel):
@@ -213,6 +214,10 @@ async def aggregate_results(
     return markdown_output
     
 
+with open("README.md") as f:
+    readme = f.read()
+    results = readme.split("## Results\n")[1]
+    
 
 system_message = f"""You are a mechanistic interpretability researcher, working on experiments where {model_name} is corrupted in certain ways.
 Your task is to run experiments, summarize all important observations by making notes, and then coming up with the next experiment.
@@ -230,19 +235,21 @@ Goals of our experiments are the following:
 - for a certain capability, what is the minimal set of layers needed to compute them?
 - for a certain capability, what are the minimal sets of layers that break the capability if the layers are skipped?
 
-Let's start with an experiment 'Remove last n layers' where we keep only the first layer, then the first 2 etc.
+Here are some notes I took earlier. You may rerun the experiments I ran there if needed - for all future experiments, we save the raw outputs and notes. Try to run experiments that yield conclusions structurly similar to the ones below:
+
+### Initial results
+{results}
+
+## Notebook
+All experiments and notes you take are collected for future runs. The following is the state of experiments when you ran earlier:
+{get_notes()}
+
+## Next steps
+Come up with new experiments to validate or disprove interesting hypothesis about how {model_name} works. You can run up to 100 experiments and take as many notes as you like. Finally, you should summarize all results in the style of a results-section for a paper. 
 """
 
-# researcher = Agent(
-#     name="MechanisticInterpretability",
-#     functions=[
-#         tool()(permuted_layers_experiment),
-#         tool()(make_notes),
-#         tool()(aggregate_results)
-#     ],
-#     system_message=system_message,
-#     prompt_template="{query}".format,
-# )
+with open('experiment1.prompt', 'w') as f:
+    f.write(user_message)
 
 
 class MechanisticInterpretability(Agent):

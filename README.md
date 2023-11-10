@@ -45,7 +45,7 @@ In this project, I aim to automate this using a GPT agent that gets functions to
 
 
 ## Results
-In this section I collect results about the research content itself, not about meta things regarding the research agent.
+This section contains some early notes of the first experiment we ran.
 
 ### Addition impossible
 The following input:
