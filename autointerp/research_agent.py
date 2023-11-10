@@ -156,13 +156,21 @@ def flatten_dict(d, parent_key='', sep='_'):
 # Define the aggregate_results function with the correct groupby field
 async def aggregate_results(
     filters: List[FilterCondition] = Field(..., description='Filters to apply to the list of datasets. Example: [{"key": "experiment_name", "value": "name of the experiment to consider"}]'),
-    groupby: FieldEnum = Field(..., description='List of field names to group the results by. Example: ["prompt"] returns the outputs of all ablations for each prompt'),
-    select: FieldEnum = Field(..., description='Fields to select - e.g. ["completion", "average_answer_token_loss"]')
+    groupby: List[FieldEnum] = Field(..., description='List of field names to group the results by. Example: ["prompt"] returns the outputs of all ablations for each prompt'),
+    select: List[FieldEnum] = Field(..., description='Fields to select - e.g. ["prompt", "completion", "average_answer_token_loss"]')
 ):
     """Display a subset of results, grouped by fields of your choice."""
     # Convert filters to a dictionary
-    filters_dict = {filter_condition.key: filter_condition.value for filter_condition in filters}
+    filters_dict = {filter_condition['key']: filter_condition['value'] for filter_condition in filters}
+    # print("agg:", groupby, select)
+    # print(FieldEnum, flush=True)
+    groupby = [i.name for i in groupby]
     
+    
+    
+    
+    select = [i.name for i in select]
+    print("agg:", groupby, select, type(groupby), type(select[0]), flush=True)
     # Filter the items using the store's filter method
     items = store.filter(**filters_dict)
     
@@ -171,6 +179,31 @@ async def aggregate_results(
     
     # Create a DataFrame from the flattened items
     df = pd.DataFrame(flattened_items)
+    print(df.columns, flush=True)
+    
+    delete = []
+    add = []
+    for i, key in enumerate(groupby):
+        if key not in df.columns:
+            delete.append(i)
+            add.extend([i for i in df.columns if i.startswith(key)])
+    for i in delete[::-1]:
+        groupby.pop(i)
+    groupby += add
+    
+    delete = []
+    add = []
+    for i, key in enumerate(select):
+        if key not in df.columns:
+            delete.append(i)
+            add.extend([i for i in df.columns if i.startswith(key)])
+    for i in delete[::-1]:
+        select.pop(i)
+    select += add
+    
+    print("agg:", groupby, select, type(groupby), type(select[0]), flush=True)
+    
+    
     
     # Group the DataFrame by the specified 'groupby' fields
     grouped = df.groupby(groupby)
@@ -196,8 +229,12 @@ async def aggregate_results(
         # Iterate over each row in the group to get the selected fields
         for _, row in group_df.iterrows():
             # Format the selected fields and their values
-            fields = '\n'.join(f"{field}: {row[field]}" for field in select)
-            selected_fields_text.append(fields)
+            try:
+                fields = '\n'.join(f"{field}: {row[field]}" for field in select)
+                selected_fields_text.append(fields)
+            except Exception as e:
+                print(e, type(e), row, flush=True)
+                pass
         
         # Concatenate all selected fields for the group
         group_text = '\n\n'.join(selected_fields_text)

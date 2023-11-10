@@ -514,6 +514,181 @@ Avg loss of: '13': 8.235128402709961
 As the first n layers are incrementally removed, the model's output becomes less structured and more chaotic, with a mix of punctuation and repeated characters. The average answer token loss generally increases as more initial layers are removed, peaking when the first five layers are omitted. However, when only the last layer is used, the average answer token loss decreases again, suggesting that the last layer alone is not sufficient to produce structured output but is less detrimental than removing the first five layers. The model fails to perform arithmetic in all cases.
 Current hypothesis:
 The initial layers of the model seem to be crucial for establishing the structure of the task and possibly for early processing of the input. As these layers are removed, the model's ability to maintain task structure and perform arithmetic deteriorates. The last layer alone does not have the capability to produce coherent output, indicating that the processing capabilities are distributed across multiple layers and that the initial layers play a significant role.
+# Layer Removal and Permutation 
+## Sentence Completion 
+### Raw results
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+Prompt: The cat sat on the
+Completion:  floor beside him, staring at him with eyes wide open. He stared back at him with eyes wide
+Avg loss of: 'mat.': 7.624998569488525
+---
+Ablation: {'layer-permutation': [0, 2, 4, 6, 8, 10]}
+Prompt: The cat sat on the
+Completion:  floor of the house, where it was located.
+
+The cat was found in the attic,
+Avg loss of: 'mat.': 5.360611915588379
+---
+Ablation: {'layer-permutation': [1, 3, 5, 7, 9, 11]}
+Prompt: The cat sat on the
+Completion: ....................
+Avg loss of: 'mat.': 4.149393081665039
+---
+Ablation: {'layer-permutation': [0, 1, 3, 5, 7, 9, 11]}
+Prompt: The cat sat on the
+Completion:  floor of the House of the House of Justice, and the House of Justice, House of Justice,
+Avg loss of: 'mat.': 6.387338638305664
+---
+Ablation: {'layer-permutation': [0, 2, 4, 6, 8, 10, 11]}
+Prompt: The cat sat on the
+Completion:  catwalk.
+
+The catwalk is a catwalk.
+
+The catwalk is a
+Avg loss of: 'mat.': 4.832747936248779
+---
+Ablation: {'layer-permutation': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+Prompt: The cat sat on the
+Completion: ,,,,,,,,,,,,........
+Avg loss of: 'mat.': 3.891401767730713
+---
+### Notes
+When removing the last layer, the model can still complete the sentence with a coherent structure. Skipping every other layer starting with the first layer results in a coherent but less contextually appropriate completion. Skipping every other layer starting with the second layer leads to a loss of coherent output, producing only dots. A similar loss of coherence is observed when the first layer is included but the second layer is skipped. Including the last layer in the permutation with every other layer starting with the first layer results in repetitive but coherent structures. Removing the first layer but keeping the rest leads to incoherent output with punctuation and dots.
+Current hypothesis:
+The coherence of the model's output in sentence completion tasks is affected by the presence of specific layers. The first layer seems to be important for initiating coherent structure, while the second layer might be crucial for maintaining contextually appropriate completions. The last layer contributes to the coherence of the output, but its absence does not lead to a complete loss of structure. The model's ability to generate coherent sentences is not uniformly distributed across layers, and certain layers play more significant roles than others.
+## Mathematical Operations 
+### Raw results
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+Prompt: 2 + 2 =
+Completion:  2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 +
+Avg loss of: '4': 13.013824462890625
+---
+Ablation: {'layer-permutation': [0, 2, 4, 6, 8, 10]}
+Prompt: 2 + 2 =
+Completion:  2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 +
+Avg loss of: '4': 12.07845687866211
+---
+Ablation: {'layer-permutation': [1, 3, 5, 7, 9, 11]}
+Prompt: 2 + 2 =
+Completion: ....................
+Avg loss of: '4': 7.306983470916748
+---
+Ablation: {'layer-permutation': [0, 1, 3, 5, 7, 9, 11]}
+Prompt: 2 + 2 =
+Completion:  0.0 + 0.0 +0.0 +0.0 +0.0 +
+Avg loss of: '4': 15.525958061218262
+---
+Ablation: {'layer-permutation': [0, 2, 4, 6, 8, 10, 11]}
+Prompt: 2 + 2 =
+Completion:  1.
+
+2 + 2 = 1.
+
+2 + 2 = 1.
+
+
+Avg loss of: '4': 14.215492248535156
+---
+Ablation: {'layer-permutation': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+Prompt: 2 + 2 =
+Completion: 's's,,,,,,,,,,,,......
+Avg loss of: '4': 7.455918788909912
+---
+### Notes
+When removing the last layer, the model fails to perform the addition correctly and instead repeats the addition operation. Skipping every other layer starting with the first layer results in the same repetitive behavior. Skipping every other layer starting with the second layer leads to a loss of coherent output, producing only dots. A similar pattern is observed when the first layer is included but the second layer is skipped, with the model outputting zeros instead of the correct answer. Including the last layer in the permutation with every other layer starting with the first layer results in the model incorrectly outputting '1' as the answer. Removing the first layer but keeping the rest leads to incoherent output with punctuation and letters.
+Current hypothesis:
+The model's ability to perform mathematical operations is significantly impaired when specific layers are removed or skipped. The first layer seems to be important for initiating the structure of the operation, while the second layer might be crucial for carrying out the computation. The last layer contributes to the coherence of the output, but its absence does not lead to a complete loss of structure. The model's ability to generate correct mathematical operations is not uniformly distributed across layers, and certain layers play more significant roles than others.
+## Word Definitions 
+### Raw results
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+Prompt: Define: apple
+Completion: 
+
+Description: apple is a small fruit that grows in the garden. It is usually eaten by
+Avg loss of: 'A fruit with red, green, or yellow skin and a sweet to tart taste.': 0.0695604458451271
+---
+Ablation: {'layer-permutation': [0, 2, 4, 6, 8, 10]}
+Prompt: Define: apple
+Completion: jack, applejack, applejack, applejack, applejack, applejack, applejack,
+Avg loss of: 'A fruit with red, green, or yellow skin and a sweet to tart taste.': 1.8406240940093994
+---
+Ablation: {'layer-permutation': [1, 3, 5, 7, 9, 11]}
+Prompt: Define: apple
+Completion: ....................
+Avg loss of: 'A fruit with red, green, or yellow skin and a sweet to tart taste.': 4.142422676086426
+---
+Ablation: {'layer-permutation': [0, 1, 3, 5, 7, 9, 11]}
+Prompt: Define: apple
+Completion: , and the apple is apple.
+
+The apple is apple, apple, and apple is apple
+Avg loss of: 'A fruit with red, green, or yellow skin and a sweet to tart taste.': 1.6690633296966553
+---
+Ablation: {'layer-permutation': [0, 2, 4, 6, 8, 10, 11]}
+Prompt: Define: apple
+Completion: jack
+
+The applejack is a good thing to have.
+
+The applejack is a
+Avg loss of: 'A fruit with red, green, or yellow skin and a sweet to tart taste.': 1.3289645910263062
+---
+Ablation: {'layer-permutation': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+Prompt: Define: apple
+Completion: 's's,,,,,,,,,,,,,,,...
+Avg loss of: 'A fruit with red, green, or yellow skin and a sweet to tart taste.': 4.014680862426758
+---
+### Notes
+When removing the last layer, the model provides a somewhat accurate but incomplete definition of an apple. Skipping every other layer starting with the first layer results in a repetition of the word 'applejack' with no definition. Skipping every other layer starting with the second layer leads to a loss of coherent output, producing only dots. A similar pattern is observed when the first layer is included but the second layer is skipped, with the model outputting a repetitive but meaningless string of words. Including the last layer in the permutation with every other layer starting with the first layer results in a nonsensical but coherent structure. Removing the first layer but keeping the rest leads to incoherent output with punctuation and letters.
+Current hypothesis:
+The model's ability to define words is affected by the presence of specific layers. The first layer seems to be important for initiating the structure of the definition, while the second layer might be crucial for providing contextually appropriate content. The last layer contributes to the coherence of the output, but its absence does not lead to a complete loss of structure. The model's ability to generate accurate word definitions is not uniformly distributed across layers, and certain layers play more significant roles than others.
+## Common Phrase Completion 
+### Raw results
+Ablation: {'layer-permutation': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+Prompt: A penny for your
+Completion:  money!
+
+We're proud to announce that we've partnered with the largest online retailer in the
+Avg loss of: 'thoughts.': 6.296950817108154
+---
+Ablation: {'layer-permutation': [0, 2, 4, 6, 8, 10]}
+Prompt: A penny for your
+Completion:  own penny for your own penny for your penny for your penny for your penny for your penny for your
+Avg loss of: 'thoughts.': 5.021764755249023
+---
+Ablation: {'layer-permutation': [1, 3, 5, 7, 9, 11]}
+Prompt: A penny for your
+Completion: ....................
+Avg loss of: 'thoughts.': 4.2960205078125
+---
+Ablation: {'layer-permutation': [0, 1, 3, 5, 7, 9, 11]}
+Prompt: A penny for your
+Completion:  favorite food, you can eat it in a healthy way.
+
+The food is a very important
+Avg loss of: 'thoughts.': 3.594357490539551
+---
+Ablation: {'layer-permutation': [0, 2, 4, 6, 8, 10, 11]}
+Prompt: A penny for your
+Completion:  money.
+
+The penny for your money.
+
+The penny for your money.
+
+
+Avg loss of: 'thoughts.': 3.9053547382354736
+---
+Ablation: {'layer-permutation': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+Prompt: A penny for your
+Completion: 's,,,,,,,,,,.........
+Avg loss of: 'thoughts.': 4.249512195587158
+---
+### Notes
+When removing the last layer, the model completes the phrase with a coherent but unrelated sentence. Skipping every other layer starting with the first layer results in a repetitive but coherent structure that deviates from the expected phrase completion. Skipping every other layer starting with the second layer leads to a loss of coherent output, producing only dots. A similar pattern is observed when the first layer is included but the second layer is skipped, with the model outputting a coherent but unrelated completion. Including the last layer in the permutation with every other layer starting with the first layer results in a repetitive structure that is somewhat related to the prompt. Removing the first layer but keeping the rest leads to incoherent output with punctuation and letters.
+Current hypothesis:
+The model's ability to complete common phrases is influenced by the presence of specific layers. The first layer seems to be important for initiating the structure of the phrase, while the second layer might be crucial for guiding the model towards the expected completion. The last layer contributes to the coherence of the output, but its absence does not lead to a complete loss of structure. The model's ability to complete common phrases accurately is not uniformly distributed across layers, and certain layers play more significant roles than others.
 
 
 ## Next steps
